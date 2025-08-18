@@ -1,0 +1,583 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>3M Overseas Education</title>
+    <style>
+        /* Global Styles */
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: Arial, sans-serif;
+        }
+
+        body {
+            background-color: #fff;
+            color: #0b2239;
+        }
+
+        /* Header Styles */
+        header {
+            background-color: #e9f0ed;
+            padding: 10px 20px;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .logo img {
+            height: 50px;
+        }
+
+        nav ul {
+            list-style: none;
+            display: flex;
+            gap: 15px;
+            background-color: #d1e7dd;
+            padding: 8px 20px;
+            border-radius: 30px;
+        }
+
+        nav ul li a {
+            text-decoration: none;
+            color: #333;
+            font-size: 16px;
+            transition: color 0.3s;
+        }
+
+        nav ul li a:hover {
+            color: #007bff;
+        }
+
+        .apply-btn {
+            background-color: #007bff;
+            color: white;
+            padding: 10px 20px;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+            text-decoration: none;
+            font-size: 16px;
+        }
+
+        .apply-btn:hover {
+            background-color: #0056b3;
+        }
+
+        .menu-toggle {
+            display: none;
+            font-size: 30px;
+            cursor: pointer;
+            color: #333;
+        }
+
+        /* Footer Section */
+        footer {
+            background-color: #2e7d5f;
+            color: white;
+            padding: 40px 20px;
+        }
+
+        .footer-container {
+            max-width: 1100px;
+            margin: auto;
+            display: flex;
+            flex-wrap: wrap;
+            gap: 40px;
+            justify-content: space-between;
+        }
+
+        .footer-logo {
+            flex: 1 1 100%;
+            text-align: center;
+            margin-bottom: 20px;
+        }
+
+        .footer-logo img {
+            max-width: 80px;
+            margin-bottom: 10px;
+        }
+
+        .footer-column {
+            flex: 1 1 200px;
+        }
+
+        .footer-column h4 {
+            font-size: 16px;
+            margin-bottom: 15px;
+            border-bottom: 1px solid rgba(255,255,255,0.2);
+            padding-bottom: 5px;
+        }
+
+        .footer-column ul {
+            list-style: none;
+            padding: 0;
+            margin: 0;
+        }
+
+        .footer-column ul li {
+            margin-bottom: 10px;
+            font-size: 14px;
+        }
+
+        .footer-column ul li a {
+            color: white;
+            text-decoration: none;
+        }
+
+        .footer-column ul li a:hover {
+            text-decoration: underline;
+        }
+
+        /* FAQ Intro Section */
+        .faq-section {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: space-between;
+            padding: 60px 20px;
+            max-width: 1200px;
+            margin: auto;
+        }
+
+        .faq-text {
+            max-width: 500px;
+            text-align: center;
+        }
+
+        .faq-text h2 {
+            font-size: 28px;
+            font-weight: 700;
+            color: #111827;
+            margin-bottom: 15px;
+        }
+
+        .faq-text p {
+            font-size: 16px;
+            color: #4b5563;
+            line-height: 1.5;
+        }
+
+        .faq-illustration {
+            margin-top: 40px;
+        }
+
+        .faq-illustration img {
+            width: 300px;
+            height: auto;
+        }
+
+        /* Accordion Section */
+        .accordion-section {
+            max-width: 800px;
+            margin: 40px auto;
+            padding: 20px;
+        }
+
+        .accordion-section h2 {
+            font-size: 24px;
+            font-weight: 700;
+            color: #111827;
+            text-align: center;
+            margin: 40px 0 20px;
+        }
+
+        .accordion-item {
+            background: #f3f4f6;
+            margin-bottom: 10px;
+            border-radius: 6px;
+            overflow: hidden;
+        }
+
+        .accordion-header {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            cursor: pointer;
+            padding: 15px 20px;
+            font-weight: 600;
+            color: #111827;
+        }
+
+        .accordion-header span {
+            font-size: 20px;
+            font-weight: bold;
+        }
+
+        .accordion-content {
+            display: none;
+            padding: 0 20px 15px;
+            font-size: 15px;
+            color: #374151;
+            line-height: 1.4;
+        }
+
+        .accordion-item.active .accordion-content {
+            display: block;
+        }
+
+        .accordion-item.active .accordion-header span::after {
+            content: "−";
+        }
+
+        .accordion-item:not(.active) .accordion-header span::after {
+            content: "+";
+        }
+
+        /* Call to Action Section */
+        .cta-section {
+            display: flex;
+            flex-direction: column;
+            justify-content: space-between;
+            align-items: center;
+            padding: 60px 20px;
+            background: linear-gradient(90deg, #0f172a, #065f46);
+            color: #fff;
+        }
+
+        .cta-text {
+            max-width: 500px;
+            margin-bottom: 20px;
+            text-align: center;
+        }
+
+        .cta-text h2 {
+            font-size: 26px;
+            font-weight: bold;
+            margin-bottom: 15px;
+        }
+
+        .cta-text p {
+            font-size: 16px;
+            margin-bottom: 15px;
+        }
+
+        .cta-text a {
+            background-color: #28a745;
+            color: white;
+            padding: 10px 20px;
+            border: none;
+            border-radius: 5px;
+            text-decoration: none;
+            font-weight: 600;
+            transition: background-color 0.3s;
+        }
+
+        .cta-text a:hover {
+            background-color: #218838;
+        }
+
+        .cta-image img {
+            max-width: 400px;
+            border-radius: 12px;
+        }
+
+        /* Responsive Design */
+        @media (min-width: 768px) {
+            .faq-section {
+                flex-direction: row;
+                text-align: left;
+            }
+            .faq-text {
+                text-align: left;
+            }
+            .faq-illustration {
+                margin-top: 0;
+                margin-left: 40px;
+            }
+            .cta-section {
+                flex-direction: row;
+                text-align: left;
+            }
+            .cta-text {
+                text-align: left;
+                margin-bottom: 0;
+            }
+        }
+
+        @media (max-width: 768px) {
+            header {
+                flex-wrap: wrap;
+                position: relative;
+            }
+
+            .logo {
+                flex: 1;
+            }
+
+            .menu-toggle {
+                display: block;
+            }
+
+            nav {
+                display: none;
+                width: 100%;
+                order: 3;
+            }
+
+            nav.active {
+                display: block;
+            }
+
+            nav ul {
+                flex-direction: column;
+                align-items: center;
+                background-color: transparent;
+                padding: 10px 0;
+                border-radius: 0;
+            }
+
+            nav ul li {
+                margin: 10px 0;
+            }
+
+            .apply-btn {
+                margin-top: 10px;
+                width: 100%;
+                text-align: center;
+            }
+
+            .accordion-section {
+                padding: 10px;
+            }
+
+            .accordion-header {
+                font-size: 14px;
+            }
+
+            .accordion-content {
+                font-size: 14px;
+            }
+
+            .cta-image img {
+                max-width: 100%;
+            }
+
+            .footer-container {
+                flex-direction: column;
+                text-align: center;
+            }
+        }
+    </style>
+</head>
+<body>
+    <!-- Header Section -->
+    <header>
+        <div class="logo">
+            <img src="logo.png" alt="3M Overseas Education Logo">
+        </div>
+        <div class="menu-toggle">☰</div>
+        <nav>
+            <ul>
+                <li><a href="index.html">Home</a></li>
+                <li><a href="about.html">About Us</a></li>
+                <li><a href="studydestination.html">Study Destinations</a></li>
+                <li><a href="services.html">What We Offer</a></li>
+                <li><a href="faqs.html">FAQs</a></li>
+                <li><a href="contact.html">Contact</a></li>
+            </ul>
+        </nav>
+        <a href="apply.html" class="apply-btn">Apply Now</a>
+    </header>
+
+    <!-- FAQ Intro Section -->
+    <section class="faq-section" id="faq">
+        <div class="faq-text">
+            <h2>Frequently Asked Questions</h2>
+            <p>
+                Got questions? We’ve got answers. Here’s everything you need to know
+                about studying abroad with 3M.
+            </p>
+        </div>
+        <div class="faq-illustration">
+            <img src="faq2.png" alt="FAQ Illustration">
+        </div>
+    </section>
+
+    <!-- Accordion Section -->
+    <section class="accordion-section" id="accordion">
+        <h2>Application Process</h2>
+        <div class="accordion-item active">
+            <div class="accordion-header">
+                <p>Q: How do I start my application?</p>
+                <span></span>
+            </div>
+            <div class="accordion-content">
+                <p>
+                    A: Click the "Apply Now" button and fill out your basic info. Our advisors will guide you through the next steps.
+                </p>
+            </div>
+        </div>
+        <div class="accordion-item">
+            <div class="accordion-header">
+                <p>Q: Can I apply to more than one university?</p>
+                <span></span>
+            </div>
+            <div class="accordion-content">
+                <p>A: Yes, you can apply to multiple universities depending on your preferences.</p>
+            </div>
+        </div>
+        <div class="accordion-item">
+            <div class="accordion-header">
+                <p>Q: Do I need to write a personal statement or essay?</p>
+                <span></span>
+            </div>
+            <div class="accordion-content">
+                <p>A: Most universities require it, but we will guide you through the process.</p>
+            </div>
+        </div>
+        <h2>Eligibility & Requirements</h2>
+        <div class="accordion-item active">
+            <div class="accordion-header">
+                <p>Q: What grades do I need to study abroad?</p>
+                <span></span>
+            </div>
+            <div class="accordion-content">
+                <p>A: It depends on the destination and university. A minimum GPA of 2.5+ is common, but we guide all academic levels.</p>
+            </div>
+        </div>
+        <div class="accordion-item">
+            <div class="accordion-header">
+                <p>Q: Do I need IELTS or TOEFL?</p>
+                <span></span>
+            </div>
+            <div class="accordion-content">
+                <p>A: Many universities accept these exams, but some offer alternatives.</p>
+            </div>
+        </div>
+        <h2>Visas & Travel</h2>
+        <div class="accordion-item active">
+            <div class="accordion-header">
+                <p>Q: Do you help with student visas?</p>
+                <span></span>
+            </div>
+            <div class="accordion-content">
+                <p>A: 100%. We assist with documentation, interview prep, and appointment bookings.</p>
+            </div>
+        </div>
+        <div class="accordion-item">
+            <div class="accordion-header">
+                <p>Q: How long does the visa process take?</p>
+                <span></span>
+            </div>
+            <div class="accordion-content">
+                <p>A: It varies by country, but we’ll guide you through the timeline.</p>
+            </div>
+        </div>
+        <h2>Costs & Scholarships</h2>
+        <div class="accordion-item active">
+            <div class="accordion-header">
+                <p>Q: How much does it cost to study abroad?</p>
+                <span></span>
+            </div>
+            <div class="accordion-content">
+                <p>A: Tuition ranges from $5,000 to $40,000/year depending on the country and program. We’ll help you budget smart.</p>
+            </div>
+        </div>
+        <div class="accordion-item">
+            <div class="accordion-header">
+                <p>Q: Are there scholarships available?</p>
+                <span></span>
+            </div>
+            <div class="accordion-content">
+                <p>A: Yes, many universities and organizations offer scholarships.</p>
+            </div>
+        </div>
+        <h2>After Admission</h2>
+        <div class="accordion-item active">
+            <div class="accordion-header">
+                <p>Q: What happens after I’m accepted?</p>
+                <span></span>
+            </div>
+            <div class="accordion-content">
+                <p>A: We guide you through visa steps, pre-departure orientation, and help you settle in abroad.</p>
+            </div>
+        </div>
+        <div class="accordion-item">
+            <div class="accordion-header">
+                <p>Q: Can I work while studying abroad?</p>
+                <span></span>
+            </div>
+            <div class="accordion-content">
+                <p>A: Yes, many countries allow part-time work for international students.</p>
+            </div>
+        </div>
+    </section>
+
+    <!-- Call to Action Section -->
+    <section class="cta-section" id="cta">
+        <div class="cta-text">
+            <h2>Still Stuck? Call to Action</h2>
+            <p>Didn’t find your question? Our team is happy to help!</p>
+            <a href="#" class="apply-btn">Talk to a Study Advisor</a>
+        </div>
+        <div class="cta-image">
+            <img src="faq1.png" alt="Study Advisor">
+        </div>
+    </section>
+
+    <!-- Footer Section -->
+    <footer id="contact">
+        <div class="footer-container">
+            <div class="footer-logo">
+                <img src="logo.png" alt="3M Overseas Education Logo">
+            </div>
+            <div class="footer-column">
+                <h4>Reach Us</h4>
+                <ul>
+                    <li>📞 +254 722 861 025</li>
+                    <li>✉ enquiries@3moverseaseducation.co.ke</li>
+                    <li>📍 10th Floor, Bruce House, South Wing, Standard Street</li>
+                </ul>
+            </div>
+            <div class="footer-column">
+                <h4>Company</h4>
+                <ul>
+                    <li><a href="#faq">FAQ</a></li>
+                    <li><a href="#accordion">Application Process</a></li>
+                    <li><a href="#cta">Get Support</a></li>
+                    <li><a href="#contact">Contact</a></li>
+                </ul>
+            </div>
+            <div class="footer-column">
+                <h4>Legal</h4>
+                <ul>
+                    <li><a href="#">Privacy Policy</a></li>
+                    <li><a href="#">Terms & Services</a></li>
+                    <li><a href="#">Terms of Use</a></li>
+                    <li><a href="#">Refund Policy</a></li>
+                </ul>
+            </div>
+            <div class="footer-column">
+                <h4>Quick Links</h4>
+                <ul>
+                    <li><a href="#">Techlabz Keybox</a></li>
+                    <li><a href="#">Downloads</a></li>
+                    <li><a href="#">Forum</a></li>
+                </ul>
+            </div>
+        </div>
+    </footer>
+
+    <!-- JavaScript for Accordion Toggle -->
+    <script>
+        // Accordion toggle functionality
+        document.querySelectorAll(".accordion-header").forEach(header => {
+            header.addEventListener("click", () => {
+                const item = header.parentElement;
+                item.classList.toggle("active");
+            });
+        });
+
+        // Menu toggle functionality
+        const menuToggle = document.querySelector('.menu-toggle');
+        const nav = document.querySelector('nav');
+
+        menuToggle.addEventListener('click', () => {
+            nav.classList.toggle('active');
+        });
+    </script>
+</body>
+</html>

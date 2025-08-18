@@ -1,0 +1,131 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>3M Overseas</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 0;
+            color: #fff;
+            text-align: center;
+            overflow: hidden;
+        }
+        .background {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background-size: cover;
+            background-position: center;
+            background-repeat: no-repeat;
+            animation: slide 32s infinite; /* 4 images x 8 seconds */
+            z-index: -1;
+        }
+        @keyframes slide {
+            0% { background-image: url('9400250.webp'); transform: scaleX(0); }
+            25% { background-image: url('9400250.webp'); transform: scaleX(1); }
+            25.1% { background-image: url('Studying-Abroad.png'); transform: scaleY(0); }
+            50% { background-image: url('Studying-Abroad.png'); transform: scaleY(1); }
+            50.1% { background-image: url('man-6272667.jpg'); transform: scaleX(0); }
+            75% { background-image: url('man-6272667.jpg'); transform: scaleX(1); }
+            75.1% { background-image: url('Study Abroad Creative Ads.jpeg'); transform: scaleY(0); }
+            100% { background-image: url('Study Abroad Creative Ads.jpeg'); transform: scaleY(1); }
+        }
+        .container {
+            position: relative;
+            padding: 50px 20px;
+            z-index: 1;
+        }
+        .logo {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            margin-bottom: 20px;
+        }
+        .logo img {
+            height: 100px;
+        }
+        .logo-text {
+            font-size: 24px;
+            margin-left: 10px;
+            color: #000;
+        }
+        .slogan {
+            font-size: 18px;
+            margin-bottom: 20px;
+        }
+        .title {
+            font-size: 36px;
+            font-weight: bold;
+            margin-bottom: 20px;
+            text-transform: uppercase;
+        }
+        .services {
+            display: flex;
+            justify-content: center;
+            gap: 20px;
+            flex-wrap: wrap;
+        }
+        .service-btn {
+            background-color: #007BFF;
+            color: #fff;
+            padding: 15px 30px;
+            border: none;
+            border-radius: 5px;
+            font-size: 16px;
+            cursor: pointer;
+            text-decoration: none;
+            display: inline-block;
+            white-space: normal; /* Allow text to wrap */
+        }
+        .service-btn:hover {
+            background-color: #0056b3;
+        }
+        .footer {
+            background-color: #007BFF;
+            padding: 10px;
+            position: relative;
+            width: 100%;
+            bottom: 0;
+            color: #fff;
+            font-size: 12px;
+        }
+        .image-placeholder {
+            height: 300px;
+            background: rgba(0, 0, 0, 0.5);
+            margin: 20px 0;
+        }
+
+       
+
+    </style>
+</head>
+<body>
+    <div class="background"></div>
+    <div class="container">
+        <div class="logo">
+            <img src="logo.png" alt="3M Overseas Logo">
+        </div>
+        <div class="slogan">Realise your possibilities abroad</div>
+        <div class="title">REALISE YOUR POSSIBILITIES ABROAD</div>
+        <div>Select the service you’d like to receive</div>
+        <div class="services">
+            <a href="studydestination.html" class="service-btn">Study Destination</a>
+            <a href="services.html" class="service-btn">Our Services</a>
+            <a href="faqs.html" class="service-btn">FAQ's</a>
+            <a href="about.html" class="service-btn">About</a>
+            <a href="contact.html" class="service-btn">Contact</a>
+            <a href="Apply" class="service-btn" style="background-color: green;">Apply Now</a>
+            
+        </div>
+    </div>
+    <br><br><br><br><br> <br><br><br><br> <br><br>
+    <div class="footer">
+        © 2025 - 3M Overseas - All Rights Reserved | Privacy Policy
+    </div>
+</body>
+</html>

@@ -1,0 +1,567 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>3M Overseas Education - Contact</title>
+    <style>
+        /* Global Styles */
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: Arial, sans-serif;
+        }
+
+        body {
+            background-color: #fff;
+            color: #0b2239;
+        }
+
+        /* Header Styles */
+        header {
+            background-color: #e9f0ed;
+            padding: 10px 20px;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .logo img {
+            height: 50px;
+        }
+
+        nav ul {
+            list-style: none;
+            display: flex;
+            gap: 15px;
+            background-color: #d1e7dd;
+            padding: 8px 20px;
+            border-radius: 30px;
+        }
+
+        nav ul li a {
+            text-decoration: none;
+            color: #333;
+            font-size: 16px;
+            transition: color 0.3s;
+        }
+
+        nav ul li a:hover {
+            color: #007bff;
+        }
+
+        .apply-btn {
+            background-color: #007bff;
+            color: white;
+            padding: 10px 20px;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+            text-decoration: none;
+            font-size: 16px;
+        }
+
+        .apply-btn:hover {
+            background-color: #0056b3;
+        }
+
+        .menu-toggle {
+            display: none;
+            font-size: 30px;
+            cursor: pointer;
+            color: #333;
+        }
+
+        /* Footer Section */
+        footer {
+            background-color: #2e7d5f;
+            color: white;
+            padding: 40px 20px;
+        }
+
+        .footer-container {
+            max-width: 1100px;
+            margin: auto;
+            display: flex;
+            flex-wrap: wrap;
+            gap: 40px;
+            justify-content: space-between;
+        }
+
+        .footer-logo {
+            flex: 1 1 100%;
+            text-align: center;
+            margin-bottom: 20px;
+        }
+
+        .footer-logo img {
+            max-width: 80px;
+            margin-bottom: 10px;
+        }
+
+        .footer-column {
+            flex: 1 1 200px;
+        }
+
+        .footer-column h4 {
+            font-size: 16px;
+            margin-bottom: 15px;
+            border-bottom: 1px solid rgba(255,255,255,0.2);
+            padding-bottom: 5px;
+        }
+
+        .footer-column ul {
+            list-style: none;
+            padding: 0;
+            margin: 0;
+        }
+
+        .footer-column ul li {
+            margin-bottom: 10px;
+            font-size: 14px;
+        }
+
+        .footer-column ul li a {
+            color: white;
+            text-decoration: none;
+        }
+
+        .footer-column ul li a:hover {
+            text-decoration: underline;
+        }
+
+        /* Hero Section */
+        .hero {
+            position: relative;
+            height: 350px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            text-align: center;
+            color: white;
+            background: url('contact1.png') no-repeat center center/cover;
+        }
+
+        .hero::after {
+            content: "";
+            position: absolute;
+            inset: 0;
+            background: rgba(0, 0, 0, 0.5);
+        }
+
+        .hero-content {
+            position: relative;
+            z-index: 1;
+            max-width: 700px;
+            padding: 0 15px;
+        }
+
+        .hero h2 {
+            font-size: 28px;
+            margin-bottom: 10px;
+        }
+
+        .hero p {
+            font-size: 15px;
+            line-height: 1.5;
+        }
+
+        /* Contact Info Cards */
+        .contact-container {
+            background: #fff;
+            padding: 40px 20px;
+            display: grid;
+            grid-template-columns: 1fr;
+            gap: 20px;
+        }
+
+        .contact-card {
+            background: #147a3c;
+            color: white;
+            text-align: center;
+            border-radius: 12px;
+            padding: 25px 20px;
+            box-shadow: 0 4px 10px rgba(0,0,0,0.1);
+            transition: transform 0.2s ease;
+        }
+
+        .contact-card:hover {
+            transform: translateY(-5px);
+        }
+
+        .contact-card h3 {
+            font-size: 18px;
+            margin-bottom: 10px;
+        }
+
+        .contact-card p {
+            margin: 5px 0;
+            font-size: 14px;
+        }
+
+        .icon {
+            font-size: 22px;
+            margin-bottom: 10px;
+            display: block;
+        }
+
+        /* Form Section */
+        .form-section {
+            background: #0c1b3a;
+            display: flex;
+            justify-content: center;
+            padding: 60px 20px;
+        }
+
+        .form-container {
+            max-width: 400px;
+            width: 100%;
+            text-align: center;
+        }
+
+        .form-container h2 {
+            font-size: 22px;
+            font-weight: 600;
+            color: white;
+            margin-bottom: 30px;
+            line-height: 1.4;
+        }
+
+        .gradient-text {
+            background: linear-gradient(90deg, #00c6ff, #7f00ff);
+            -webkit-background-clip: text;
+            background-clip: text;
+            -webkit-text-fill-color: transparent;
+            font-weight: bold;
+        }
+
+        .contact-form {
+            display: flex;
+            flex-direction: column;
+            text-align: left;
+        }
+
+        .contact-form label {
+            color: white;
+            font-size: 14px;
+            margin-bottom: 5px;
+        }
+
+        .contact-form input,
+        .contact-form textarea {
+            background: transparent;
+            border: none;
+            border-bottom: 1px solid #ccc;
+            color: white;
+            font-size: 14px;
+            padding: 8px 0;
+            margin-bottom: 20px;
+            outline: none;
+        }
+
+        .contact-form button {
+            background: #28a745;
+            border: none;
+            border-radius: 6px;
+            color: white;
+            padding: 12px;
+            font-size: 14px;
+            cursor: pointer;
+            margin-top: 10px;
+            transition: background 0.3s ease;
+        }
+
+        .contact-form button:hover {
+            background: #218838;
+        }
+
+        /* Map Section */
+        .map {
+            width: 100%;
+            height: 300px;
+            border: none;
+        }
+
+        /* CTA Section */
+        .cta-section {
+            background: linear-gradient(135deg, #0c1b3a, #062e56);
+            color: white;
+            padding: 60px 20px;
+            display: grid;
+            grid-template-columns: 1fr;
+            gap: 30px;
+            align-items: center;
+        }
+
+        .cta-text h3 {
+            font-size: 20px;
+            margin-bottom: 15px;
+        }
+
+        .cta-text p {
+            font-size: 14px;
+            margin-bottom: 20px;
+        }
+
+        .cta-text a {
+            background: #28a745;
+            color: white;
+            padding: 10px 20px;
+            border: none;
+            border-radius: 5px;
+            text-decoration: none;
+            font-weight: bold;
+            transition: background 0.3s ease;
+        }
+
+        .cta-text a:hover {
+            background: #218838;
+        }
+
+        .cta-img img {
+            width: 100%;
+            border-radius: 8px;
+        }
+
+        /* Responsive Design */
+        @media (min-width: 768px) {
+            .contact-container {
+                grid-template-columns: repeat(3, 1fr);
+            }
+            .cta-section {
+                grid-template-columns: 1fr 1fr;
+            }
+        }
+
+        @media (max-width: 768px) {
+            header {
+                flex-wrap: wrap;
+                position: relative;
+            }
+
+            .logo {
+                flex: 1;
+            }
+
+            .menu-toggle {
+                display: block;
+            }
+
+            nav {
+                display: none;
+                width: 100%;
+                order: 3;
+            }
+
+            nav.active {
+                display: block;
+            }
+
+            nav ul {
+                flex-direction: column;
+                align-items: center;
+                background-color: transparent;
+                padding: 10px 0;
+                border-radius: 0;
+            }
+
+            nav ul li {
+                margin: 10px 0;
+            }
+
+            .apply-btn {
+                margin-top: 10px;
+                width: 100%;
+                text-align: center;
+            }
+
+            .hero {
+                height: 250px;
+            }
+
+            .hero h2 {
+                font-size: 24px;
+            }
+
+            .hero p {
+                font-size: 14px;
+            }
+
+            .form-container {
+                max-width: 100%;
+            }
+
+            .map {
+                height: 200px;
+            }
+
+            .footer-container {
+                flex-direction: column;
+                text-align: center;
+            }
+        }
+    </style>
+</head>
+<body>
+    <!-- Header Section -->
+    <header>
+        <div class="logo">
+            <img src="logo.png" alt="3M Overseas Education Logo">
+        </div>
+        <div class="menu-toggle">☰</div>
+        <nav>
+            <ul>
+                <li><a href="index.html">Home</a></li>
+                <li><a href="about.html">About Us</a></li>
+                <li><a href="studydestination.html">Study Destinations</a></li>
+                <li><a href="services.html">What We Offer</a></li>
+                <li><a href="faqs.html">FAQs</a></li>
+                <li><a href="contact.html">Contact</a></li>
+            </ul>
+        </nav>
+        <a href="apply.html" class="apply-btn">Apply Now</a>
+    </header>
+
+    <!-- Hero Section -->
+    <section class="hero" id="hero">
+        <div class="hero-content">
+            <h2>Get in Touch With Us</h2>
+            <p>Whether you're ready to apply or just exploring your options, our advisors are here for you.</p>
+        </div>
+    </section>
+
+    <!-- Contact Cards Section -->
+    <section class="contact-container" id="contact-cards">
+        <div class="contact-card">
+            <span class="icon">📧</span>
+            <h3>Email Us</h3>
+            <p><a href="mailto:enquiries@3moverseaseducation.co.ke" style="color:white; text-decoration:none;">enquiries@3moverseaseducation.co.ke</a></p>
+            <p>(Reply within 24 hrs)</p>
+        </div>
+        <div class="contact-card">
+            <span class="icon">📞</span>
+            <h3>Call Us</h3>
+            <p><a href="tel:+254722861025" style="color:white; text-decoration:none;">+254 722 861 025</a></p>
+            <p><a href="tel:+254739717438" style="color:white; text-decoration:none;">+254 739 717 438</a></p>
+            <p>(Mon–Fri, 9am–5pm)</p>
+        </div>
+        <div class="contact-card">
+            <span class="icon">📍</span>
+            <h3>Visit Our Office</h3>
+            <p>10th Floor, Bruce House, South Wing,</p>
+            <p>Standard Street, Nairobi, Kenya</p>
+        </div>
+    </section>
+
+    <!-- Form Section -->
+    <section class="form-section" id="form">
+        <div class="form-container">
+            <h2>
+                Fuel Your Education <br />
+                Goals with <span class="gradient-text">Beyond</span>
+            </h2>
+            <form class="contact-form">
+                <label for="name">Name</label>
+                <input type="text" id="name" name="name" required aria-required="true">
+                <label for="email">Email address</label>
+                <input type="email" id="email" name="email" required aria-required="true">
+                <label for="phone">Phone number</label>
+                <input type="tel" id="phone" name="phone" required aria-required="true">
+                <label for="message">Message</label>
+                <textarea id="message" name="message" rows="3" required aria-required="true"></textarea>
+                <button type="submit">Submit</button>
+            </form>
+        </div>
+    </section>
+
+    <!-- Map Section -->
+    <section class="map" id="map">
+        <iframe class="map" src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3988.815089300467!2d36.82194631475772!3d-1.2837566359746776!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x182f10c5e4b3e4b9%3A0x4c4b5f9a8e9c4d9!2sBruce%20House%2C%20Standard%20St%2C%20Nairobi%2C%20Kenya!5e0!3m2!1sen!2ske!4v1698765432109!5m2!1sen!2ske" allowfullscreen="" loading="lazy"></iframe>
+    </section>
+
+    <!-- CTA Section -->
+    <section class="cta-section" id="cta">
+        <div class="cta-text">
+            <h3>Still Stuck? Call to Action</h3>
+            <p>Still unsure where to begin? Book a free consultation today.</p>
+            <a href="#" class="apply-btn">Book Now</a>
+        </div>
+        <div class="cta-img">
+            <img src="faq1.png" alt="Consultation">
+        </div>
+    </section>
+
+    <!-- Footer Section -->
+    <footer id="contact">
+        <div class="footer-container">
+            <div class="footer-logo">
+                <img src="logo.png" alt="3M Overseas Education Logo">
+            </div>
+            <div class="footer-column">
+                <h4>Reach Us</h4>
+                <ul>
+                    <li>📞 +254 722 861 025</li>
+                    <li>✉ enquiries@3moverseaseducation.co.ke</li>
+                    <li>📍 10th Floor, Bruce House, South Wing, Standard Street</li>
+                </ul>
+            </div>
+            <div class="footer-column">
+                <h4>Company</h4>
+                <ul>
+                    <li><a href="#contact-cards">Contact Us</a></li>
+                    <li><a href="#form">Get in Touch</a></li>
+                    <li><a href="#cta">Book a Consultation</a></li>
+                    <li><a href="#contact">Reach Us</a></li>
+                </ul>
+            </div>
+            <div class="footer-column">
+                <h4>Legal</h4>
+                <ul>
+                    <li><a href="#">Privacy Policy</a></li>
+                    <li><a href="#">Terms & Services</a></li>
+                    <li><a href="#">Terms of Use</a></li>
+                    <li><a href="#">Refund Policy</a></li>
+                </ul>
+            </div>
+            <div class="footer-column">
+                <h4>Quick Links</h4>
+                <ul>
+                    <li><a href="#">Techlabz Keybox</a></li>
+                    <li><a href="#">Downloads</a></li>
+                    <li><a href="#">Forum</a></li>
+                </ul>
+            </div>
+        </div>
+    </footer>
+
+    <!-- JavaScript for Card Animation, Form Submission, and Menu Toggle -->
+    <script>
+        // Animate contact cards on load
+        document.querySelectorAll(".contact-card").forEach((card, index) => {
+            card.style.opacity = 0;
+            card.style.transform = "translateY(20px)";
+            setTimeout(() => {
+                card.style.transition = "all 0.6s ease";
+                card.style.opacity = 1;
+                card.style.transform = "translateY(0)";
+            }, 200 * index);
+        });
+
+        // Basic form submission handler
+        document.querySelector(".contact-form").addEventListener("submit", function(e) {
+            e.preventDefault();
+            alert("Form submitted successfully!");
+            // Replace with actual form submission logic (e.g., API call)
+        });
+
+        // Menu toggle functionality
+        const menuToggle = document.querySelector('.menu-toggle');
+        const nav = document.querySelector('nav');
+
+        menuToggle.addEventListener('click', () => {
+            nav.classList.toggle('active');
+        });
+    </script>
+</body>
+</html>

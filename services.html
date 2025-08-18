@@ -1,0 +1,711 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>3M Overseas Education</title>
+    <style>
+        /* Global Styles */
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: Arial, sans-serif;
+        }
+
+        body {
+            background-color: #fff;
+            color: #0b2239;
+        }
+
+        /* Header Styles */
+        header {
+            background-color: #e9f0ed;
+            padding: 10px 20px;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .logo img {
+            height: 50px;
+        }
+
+        nav ul {
+            list-style: none;
+            display: flex;
+            gap: 15px;
+            background-color: #d1e7dd;
+            padding: 8px 20px;
+            border-radius: 30px;
+        }
+
+        nav ul li a {
+            text-decoration: none;
+            color: #333;
+            font-size: 16px;
+            transition: color 0.3s;
+        }
+
+        nav ul li a:hover {
+            color: #007bff;
+        }
+
+        .apply-btn {
+            background-color: #007bff;
+            color: white;
+            padding: 10px 20px;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+            text-decoration: none;
+            font-size: 16px;
+        }
+
+        .apply-btn:hover {
+            background-color: #0056b3;
+        }
+
+        .menu-toggle {
+            display: none;
+            font-size: 30px;
+            cursor: pointer;
+            color: #333;
+        }
+
+        /* Footer Section */
+        footer {
+            background-color: #2e7d5f;
+            color: white;
+            padding: 40px 20px;
+        }
+
+        .footer-container {
+            max-width: 1100px;
+            margin: auto;
+            display: flex;
+            flex-wrap: wrap;
+            gap: 40px;
+            justify-content: space-between;
+        }
+
+        .footer-logo {
+            flex: 1 1 100%;
+            text-align: center;
+            margin-bottom: 20px;
+        }
+
+        .footer-logo img {
+            max-width: 80px;
+            margin-bottom: 10px;
+        }
+
+        .footer-column {
+            flex: 1 1 200px;
+        }
+
+        .footer-column h4 {
+            font-size: 16px;
+            margin-bottom: 15px;
+            border-bottom: 1px solid rgba(255,255,255,0.2);
+            padding-bottom: 5px;
+        }
+
+        .footer-column ul {
+            list-style: none;
+            padding: 0;
+            margin: 0;
+        }
+
+        .footer-column ul li {
+            margin-bottom: 10px;
+            font-size: 14px;
+        }
+
+        .footer-column ul li a {
+            color: white;
+            text-decoration: none;
+        }
+
+        .footer-column ul li a:hover {
+            text-decoration: underline;
+        }
+
+        /* Body Styles */
+        h2 {
+            text-align: center;
+            font-size: 28px;
+            font-weight: bold;
+            margin-bottom: 20px;
+        }
+
+        /* Hero Banner Section */
+        .hero-banner {
+            position: relative;
+            height: 100vh;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            text-align: center;
+            color: white;
+            background: url('service1.png') no-repeat center center/cover;
+        }
+
+        .hero-banner::after {
+            content: "";
+            position: absolute;
+            inset: 0;
+            background: rgba(0, 0, 0, 0.5);
+        }
+
+        .hero-content {
+            position: relative;
+            z-index: 1;
+            max-width: 800px;
+            padding: 0 15px;
+        }
+
+        .hero-content h1 {
+            font-size: 28px;
+            font-weight: bold;
+            margin-bottom: 15px;
+        }
+
+        .hero-content p {
+            font-size: 16px;
+            margin-bottom: 30px;
+            line-height: 1.6;
+        }
+
+        /* Buttons */
+        .btn {
+            padding: 12px 24px;
+            border-radius: 6px;
+            font-size: 14px;
+            font-weight: 600;
+            cursor: pointer;
+            text-decoration: none;
+            display: inline-block;
+            margin: 5px;
+            transition: all 0.3s ease;
+        }
+
+        .btn-primary {
+            background: #0d3b66;
+            color: white;
+            border: none;
+        }
+
+        .btn-primary:hover {
+            background: #09294a;
+        }
+
+        .btn-secondary {
+            background: transparent;
+            color: #ccc;
+            border: 1px solid #ccc;
+        }
+
+        .btn-secondary:hover {
+            color: white;
+            border-color: white;
+        }
+
+        /* What We Do for You Section */
+        .services {
+            padding: 60px 20px;
+            max-width: 1200px;
+            margin: auto;
+        }
+
+        .services-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 40px;
+        }
+
+        .service-card {
+            display: flex;
+            flex-direction: column;
+            align-items: flex-start;
+        }
+
+        .service-card img {
+            width: 100%;
+            height: 200px;
+            object-fit: cover;
+            border-radius: 12px;
+            box-shadow: 0 4px 8px rgba(0,0,0,0.1);
+        }
+
+        .service-card h3 {
+            margin-top: 15px;
+            font-size: 18px;
+            font-weight: 600;
+            display: flex;
+            align-items: center;
+        }
+
+        .service-card h3 span {
+            margin-right: 8px;
+        }
+
+        .service-card p {
+            margin-top: 8px;
+            font-size: 14px;
+            line-height: 1.6;
+            color: #555;
+        }
+
+        /* How It Works Section */
+        .how-it-works {
+            padding: 60px 20px;
+            max-width: 1200px;
+            margin: auto;
+        }
+
+        .how-it-works .container {
+            display: flex;
+            flex-wrap: wrap;
+            align-items: center;
+            gap: 40px;
+        }
+
+        .how-it-works .image {
+            flex: 1 1 45%;
+        }
+
+        .how-it-works .image img {
+            width: 100%;
+            border-radius: 12px;
+            box-shadow: 0 4px 8px rgba(0,0,0,0.1);
+        }
+
+        .how-it-works .content {
+            flex: 1 1 45%;
+        }
+
+        .how-it-works h2 {
+            font-size: 24px;
+            font-weight: bold;
+            margin-bottom: 8px;
+        }
+
+        .how-it-works .subtitle {
+            font-size: 14px;
+            color: #555;
+            margin-bottom: 24px;
+            text-align: left;
+        }
+
+        .steps {
+            list-style: none;
+            padding: 0;
+            margin: 0;
+        }
+
+        .steps li {
+            display: flex;
+            align-items: center;
+            font-size: 16px;
+            font-weight: 500;
+            margin-bottom: 16px;
+            color: #333;
+        }
+
+        .steps li span {
+            display: inline-flex;
+            justify-content: center;
+            align-items: center;
+            background: #009444;
+            color: white;
+            font-size: 14px;
+            font-weight: bold;
+            width: 28px;
+            height: 28px;
+            border-radius: 50%;
+            margin-right: 12px;
+        }
+
+        /* Testimonials Section */
+        .testimonials {
+            padding: 60px 20px;
+            max-width: 1200px;
+            margin: auto;
+            text-align: center;
+        }
+
+        .testimonial-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+            gap: 30px;
+            margin-top: 40px;
+        }
+
+        .testimonial-card {
+            border-radius: 12px;
+            overflow: hidden;
+            box-shadow: 0 4px 8px rgba(0,0,0,0.1);
+            background: #222;
+            color: white;
+            text-align: left;
+            display: flex;
+            flex-direction: column;
+            justify-content: space-between;
+        }
+
+        .testimonial-card img {
+            width: 100%;
+            height: 150px;
+            object-fit: cover;
+        }
+
+        .testimonial-content {
+            padding: 20px;
+        }
+
+        .testimonial-content p {
+            font-size: 14px;
+            line-height: 1.6;
+            margin-bottom: 15px;
+        }
+
+        .testimonial-footer {
+            padding: 15px 20px;
+            background: rgba(0,0,0,0.7);
+        }
+
+        .testimonial-footer h4 {
+            margin: 0;
+            font-size: 16px;
+            font-weight: bold;
+        }
+
+        .testimonial-footer span {
+            font-size: 12px;
+            color: #bbb;
+        }
+
+        .stars {
+            color: gold;
+            margin-top: 10px;
+        }
+
+        /* CTA Banner Section */
+        .cta {
+            margin: 60px auto;
+            max-width: 1200px;
+            background: #0a0a4f;
+            color: white;
+            border-radius: 12px;
+            padding: 60px 20px;
+            text-align: center;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .cta h3 {
+            font-size: 22px;
+            margin-bottom: 20px;
+        }
+
+        .cta p {
+            margin-bottom: 30px;
+            font-size: 14px;
+            letter-spacing: 1px;
+            text-transform: uppercase;
+            color: #aaa;
+        }
+
+        .cta-buttons {
+            display: flex;
+            justify-content: center;
+            gap: 20px;
+            flex-wrap: wrap;
+        }
+
+        .cta-buttons a {
+            text-decoration: none;
+            padding: 12px 24px;
+            border-radius: 6px;
+            font-size: 14px;
+            font-weight: bold;
+            transition: opacity 0.3s;
+        }
+
+        .cta-buttons .apply-btn {
+            background: #28a745;
+            color: white;
+        }
+
+        .cta-buttons .apply-btn:hover {
+            background: #218838;
+        }
+
+        .cta-buttons .consult-btn {
+            border: 1px solid #fff;
+            color: #fff;
+        }
+
+        .cta-buttons .consult-btn:hover {
+            background: rgba(255,255,255,0.1);
+        }
+
+        /* Responsive Design */
+        @media (max-width: 768px) {
+            header {
+                flex-wrap: wrap;
+                position: relative;
+            }
+
+            .logo {
+                flex: 1;
+            }
+
+            .menu-toggle {
+                display: block;
+            }
+
+            nav {
+                display: none;
+                width: 100%;
+                order: 3;
+            }
+
+            nav.active {
+                display: block;
+            }
+
+            nav ul {
+                flex-direction: column;
+                align-items: center;
+                background-color: transparent;
+                padding: 10px 0;
+                border-radius: 0;
+            }
+
+            nav ul li {
+                margin: 10px 0;
+            }
+
+            .apply-btn {
+                margin-top: 10px;
+                width: 100%;
+                text-align: center;
+            }
+
+            .services-grid, .testimonial-grid {
+                grid-template-columns: 1fr;
+            }
+
+            .how-it-works .container {
+                flex-direction: column;
+                text-align: center;
+            }
+
+            .how-it-works .steps li {
+                justify-content: center;
+            }
+
+            .cta-buttons {
+                flex-direction: column;
+                gap: 10px;
+            }
+
+            .hero-banner {
+                height: 70vh; /* Adjusted for mobile */
+            }
+        }
+    </style>
+</head>
+<body>
+    <!-- Header Section -->
+    <header>
+        <div class="logo">
+            <img src="logo.png" alt="3M Overseas Education Logo">
+        </div>
+        <div class="menu-toggle">☰</div>
+        <nav>
+            <ul>
+                <li><a href="index.html">Home</a></li>
+                <li><a href="about.html">About Us</a></li>
+                <li><a href="studydestination.html">Study Destinations</a></li>
+                <li><a href="services.html">What We Offer</a></li>
+                <li><a href="faqs.html">FAQs</a></li>
+                <li><a href="contact.html">Contact</a></li>
+            </ul>
+        </nav>
+        <a href="apply.html" class="apply-btn">Apply Now</a>
+    </header>
+
+    <!-- Hero Banner Section -->
+    <section class="hero-banner">
+        <div class="hero-content">
+            <h1>Everything You Need to Study Abroad — All in One Place.</h1>
+            <p>From university selection to visa support, we handle the hard stuff so you can focus on your future.</p>
+            <a href="apply.html" class="btn btn-primary">Apply Now</a>
+            <a href="#" class="btn btn-secondary">Book Free Consultation</a>
+        </div>
+    </section>
+
+    <!-- What We Do for You Section -->
+    <section class="services" id="services">
+        <h2>What We Do for You</h2>
+        <div class="services-grid">
+            <div class="service-card">
+                <img src="service2.png" alt="University Selection">
+                <h3><span>🎓</span>University Selection</h3>
+                <p>We match you with universities that fit your academic goals, budget, and dream destination.</p>
+            </div>
+            <div class="service-card">
+                <img src="service3.png" alt="Application Assistance">
+                <h3><span>📄</span>Application Assistance</h3>
+                <p>From forms to essays — we guide you through every step of the application process.</p>
+            </div>
+            <div class="service-card">
+                <img src="service4.png" alt="Document Preparation">
+                <h3><span>🗂️</span>Document Preparation</h3>
+                <p>We help compile and verify the documents you need for admission and visas.</p>
+            </div>
+            <div class="service-card">
+                <img src="service5.png" alt="Interview Coaching">
+                <h3><span>💬</span>Interview Coaching</h3>
+                <p>Nervous about your student visa or school interview? We got you — mock sessions & feedback included.</p>
+            </div>
+            <div class="service-card">
+                <img src="service6.png" alt="Visa Guidance">
+                <h3><span>✈️</span>Visa Guidance</h3>
+                <p>Get expert help to ace your visa application — no stress, just results.</p>
+            </div>
+            <div class="service-card">
+                <img src="service7.png" alt="Career Pathway Advice">
+                <h3><span>💼</span>Career Pathway Advice</h3>
+                <p>Know what comes after graduation — work permits, job hunting, and global career plans.</p>
+            </div>
+        </div>
+    </section>
+
+    <!-- How It Works Section -->
+    <section class="how-it-works" id="how-it-works">
+        <div class="container">
+            <div class="image">
+                <img src="service8.png" alt="How It Works Illustration">
+            </div>
+            <div class="content">
+                <h2>How It Works</h2>
+                <p class="subtitle">Your Journey in 4 Steps</p>
+                <ul class="steps">
+                    <li><span>1</span> Book Free Consultation</li>
+                    <li><span>2</span> Get Personalized Guidance</li>
+                    <li><span>3</span> Apply & Get Support</li>
+                    <li><span>4</span> Fly to Your Dream Destination</li>
+                </ul>
+            </div>
+        </div>
+    </section>
+
+    <!-- Testimonials Section -->
+    <section class="testimonials" id="testimonials">
+        <h2>What Our Students Say</h2>
+        <div class="testimonial-grid">
+            <div class="testimonial-card">
+                <img src="service9.jpg" alt="Veronica Gleason Testimonial">
+                <div class="testimonial-content">
+                    <p>“3M Overseas guided me through my application to a UK university. Their support was invaluable!”</p>
+                    <div class="stars">★★★★★</div>
+                </div>
+                <div class="testimonial-footer">
+                    <h4>Veronica Gleason</h4>
+                    <span>Student, UK University</span>
+                </div>
+            </div>
+            <div class="testimonial-card">
+               
+                <div class="testimonial-content">
+                    <p>“Thanks to 3M, I secured a scholarship to study in Canada. Their team is professional and dedicated.”</p>
+                    <div class="stars">★★★★★</div>
+                </div>
+                <div class="testimonial-footer">
+                    <h4>Moses Kertzmann</h4>
+                    <span>Student, Canadian University</span>
+                </div>
+                 <img src="service10.jpg" alt="Moses Kertzmann Testimonial">
+            </div>
+            <div class="testimonial-card">
+                <img src="service11.jpg" alt="Amy Hackett Testimonial">
+                <div class="testimonial-content">
+                    <p>“The visa process was seamless with 3M’s guidance. I’m now studying in Australia!”</p>
+                    <div class="stars">★★★★★</div>
+                </div>
+                <div class="testimonial-footer">
+                    <h4>Amy Hackett</h4>
+                    <span>Student, Australian University</span>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- CTA Banner Section -->
+    <section class="cta" id="cta">
+        <p>— 3M Overseas Education Advisory Center</p>
+        <h3>Ready to Start Your Study Abroad Journey?</h3>
+        <div class="cta-buttons">
+            <a href="apply.html" class="apply-btn">Apply Now</a>
+            <a href="#" class="consult-btn">Book Free Consultation</a>
+        </div>
+    </section>
+
+    <!-- Footer Section -->
+    <footer id="contact">
+        <div class="footer-container">
+            <div class="footer-logo">
+                <img src="logo.png" alt="3M Overseas Education Logo">
+            </div>
+            <div class="footer-column">
+                <h4>Reach Us</h4>
+                <ul>
+                    <li>📞 +254 722 861 025</li>
+                    <li>✉ enquiries@3moverseaseducation.co.ke</li>
+                    <li>📍 10th Floor, Bruce House, South Wing, Standard Street</li>
+                </ul>
+            </div>
+            <div class="footer-column">
+                <h4>Company</h4>
+                <ul>
+                    <li><a href="#services">What We Do</a></li>
+                    <li><a href="#how-it-works">How It Works</a></li>
+                    <li><a href="#testimonials">Testimonials</a></li>
+                    <li><a href="#contact">Contact</a></li>
+                </ul>
+            </div>
+            <div class="footer-column">
+                <h4>Legal</h4>
+                <ul>
+                    <li><a href="#">Privacy Policy</a></li>
+                    <li><a href="#">Terms & Services</a></li>
+                    <li><a href="#">Terms of Use</a></li>
+                    <li><a href="#">Refund Policy</a></li>
+                </ul>
+            </div>
+            <div class="footer-column">
+                <h4>Quick Links</h4>
+                <ul>
+                    <li><a href="#">Techlabz Keybox</a></li>
+                    <li><a href="#">Downloads</a></li>
+                    <li><a href="#">Forum</a></li>
+                </ul>
+            </div>
+        </div>
+    </footer>
+
+    <!-- JavaScript for Menu Toggle -->
+    <script>
+        const menuToggle = document.querySelector('.menu-toggle');
+        const nav = document.querySelector('nav');
+
+        menuToggle.addEventListener('click', () => {
+            nav.classList.toggle('active');
+        });
+    </script>
+</body>
+</html>

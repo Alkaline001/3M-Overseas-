@@ -1,0 +1,492 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Application Form</title>
+  <style>
+    body {
+      font-family: 'Poppins', sans-serif;
+      background: #fff;
+      color: #111;
+      display: flex;
+      justify-content: center;
+      padding: 40px;
+    }
+
+    .form-container {
+      max-width: 500px;
+      width: 100%;
+      text-align: center;
+    }
+
+    /* Progress bar */
+    .progressbar {
+      display: flex;
+      justify-content: space-between;
+      counter-reset: step;
+      margin-bottom: 40px;
+      padding: 0;
+    }
+    .progressbar li {
+      list-style: none;
+      text-align: center;
+      flex: 1;
+      position: relative;
+      font-size: 14px;
+    }
+    .progressbar li::before {
+      counter-increment: step;
+      content: counter(step);
+      display: block;
+      margin: 0 auto 10px;
+      width: 28px;
+      height: 28px;
+      line-height: 28px;
+      border: 2px solid #ccc;
+      border-radius: 50%;
+      background: #fff;
+      color: #ccc;
+    }
+    .progressbar li.active::before {
+      border-color: #000b58;
+      background: #000b58;
+      color: #fff;
+    }
+    .progressbar li::after {
+      content: '';
+      position: absolute;
+      top: 14px;
+      left: -50%;
+      width: 100%;
+      height: 2px;
+      background: #ccc;
+      z-index: -1;
+    }
+    .progressbar li:first-child::after {
+      display: none;
+    }
+    .progressbar li.active + li::after {
+      background: #000b58;
+    }
+
+    /* Form Fields */
+    h3 {
+      margin-bottom: 20px;
+      font-size: 18px;
+      font-weight: 600;
+      text-align: left;
+    }
+
+    label {
+      display: block;
+      text-align: left;
+      font-size: 14px;
+      margin: 10px 0 5px;
+    }
+
+    input, select {
+      width: 100%;
+      padding: 12px;
+      border: 1px solid #ddd;
+      border-radius: 6px;
+      font-size: 14px;
+      margin-bottom: 15px;
+      background: #f5f5f5;
+    }
+
+    .dob-fields {
+      display: flex;
+      gap: 10px;
+    }
+    .dob-fields input {
+      flex: 1;
+      text-align: center;
+    }
+
+    /* Upload box */
+    .upload-box {
+      border: 2px dashed #ccc;
+      border-radius: 8px;
+      padding: 40px;
+      text-align: center;
+      color: #777;
+      margin-bottom: 15px;
+      cursor: pointer;
+      transition: border-color 0.3s ease;
+      position: relative;
+    }
+    .upload-box:hover {
+      border-color: #000b58;
+    }
+    .upload-box input[type="file"] {
+      opacity: 0;
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      cursor: pointer;
+    }
+    .upload-box p {
+      margin: 0;
+    }
+
+    /* Checkbox */
+    .checkbox-group {
+      display: flex;
+      align-items: center;
+      gap: 8px;
+      margin-top: 10px;
+      margin-bottom: 20px;
+    }
+    .checkbox-group input {
+      width: auto;
+    }
+
+    /* Buttons */
+    .buttons {
+      display: flex;
+      justify-content: style;
+      margin-top: 20px;
+    }
+    .buttons button {
+      padding: 12px 24px;
+      border: none;
+      border-radius: 20px;
+      cursor: pointer;
+      font-size: 14px;
+    }
+    .prev {
+      background: #f1f1f1;
+      color: #333;
+    }
+    .next, .submit, .home-btn {
+      background: #000b58;
+      color: #fff;
+    }
+    .next:disabled, .submit:disabled {
+      background: #ccc;
+      cursor: not-allowed;
+    }
+
+    /* Hide steps */
+    .form-step {
+      display: none;
+    }
+    .form-step.active {
+      display: block;
+    }
+
+    /* Confirmation page */
+    .confirmation {
+      display: none;
+      text-align: center;
+      margin-top: 40px;
+    }
+    .confirmation img {
+      width: 220px;
+      margin-bottom: 20px;
+    }
+    .confirmation p {
+      font-size: 14px;
+      color: #333;
+      margin-bottom: 20px;
+    }
+
+    /* Error message */
+    .error {
+      color: red;
+      font-size: 13px;
+      margin-bottom: 15px;
+      display: none;
+      text-align: left;
+    }
+  </style>
+</head>
+<body>
+
+  <div class="form-container">
+    <h4 style="text-align:center; margin-bottom:20px;">Application Form</h4>
+
+    <!-- Progress bar -->
+    <ul class="progressbar">
+      <li class="active"></li>
+      <li></li>
+      <li></li>
+      <li></li>
+    </ul>
+
+    <!-- Form -->
+    <form id="multiStepForm">
+      
+      <!-- Step 1 -->
+      <div class="form-step active">
+        <p><strong>Step 1/4</strong></p>
+        <h3>Personal Details!</h3>
+        <p class="error" id="errorStep1">Please fill all required fields.</p>
+
+        <label>Name</label>
+        <input type="text" placeholder="Full Name" required>
+
+        <label>Email</label>
+        <input type="email" placeholder="Your Email" required>
+
+        <label>D.O.B</label>
+        <div class="dob-fields">
+          <input type="text" placeholder="Month" required>
+          <input type="text" placeholder="Day" required>
+          <input type="text" placeholder="Year" required>
+        </div>
+
+        <label>Nationality</label>
+        <select required>
+          <option value="">ie Kenyan</option>
+          <option value="Kenya">Kenya</option>
+          <option value="Uganda">Uganda</option>
+          <option value="Tanzania">Tanzania</option>
+        </select>
+
+        <label>Gender</label>
+        <select required>
+          <option value="">ie Male</option>
+          <option value="Male">Male</option>
+          <option value="Female">Female</option>
+          <option value="Other">Other</option>
+        </select>
+
+        <label>Phone Number</label>
+        <input type="text" placeholder="254 723 345 456" required>
+
+        <div class="buttons">
+          <button type="button" class="prev" disabled>Previous Step</button>
+          <button type="button" class="next" disabled>Next Step</button>
+        </div>
+      </div>
+
+      <!-- Step 2 -->
+      <div class="form-step">
+        <p><strong>Step 2/4</strong></p>
+        <h3>Academic Background</h3>
+        <p class="error" id="errorStep2">Please fill all required fields.</p>
+
+        <label>Highest Level of Education</label>
+        <select required>
+          <option value="">ie HighSchool</option>
+          <option value="HighSchool">HighSchool</option>
+          <option value="Diploma">Diploma</option>
+          <option value="Bachelor">Bachelor</option>
+          <option value="Masters">Masters</option>
+        </select>
+
+        <label>Name of Institution</label>
+        <input type="text" placeholder="ie Cambridge" required>
+
+        <label>Date of Completion</label>
+        <div class="dob-fields">
+          <input type="text" placeholder="Month" required>
+          <input type="text" placeholder="Day" required>
+          <input type="text" placeholder="Year" required>
+        </div>
+
+        <label>Grade / GPA</label>
+        <input type="text" placeholder="4.5" required>
+
+        <div class="buttons">
+          <button type="button" class="prev">Previous Step</button>
+          <button type="button" class="next" disabled>Next Step</button>
+        </div>
+      </div>
+
+      <!-- Step 3 -->
+      <div class="form-step">
+        <p><strong>Step 3/4</strong></p>
+        <h3>Study Preferences</h3>
+        <p class="error" id="errorStep3">Please fill all required fields.</p>
+
+        <label>Preferred Country</label>
+        <select required>
+          <option value="">Canada</option>
+          <option value="USA">USA</option>
+          <option value="UK">UK</option>
+          <option value="Australia">Australia</option>
+        </select>
+
+        <label>Preferred Course</label>
+        <input type="text" placeholder="ie Cambridge" required>
+
+        <label>Preferred Intake Date</label>
+        <div class="dob-fields">
+          <input type="text" placeholder="Month" required>
+          <input type="text" placeholder="Day" required>
+          <input type="text" placeholder="Year" required>
+        </div>
+
+        <label>Education level</label>
+        <select required>
+          <option value="">Masters</option>
+          <option value="Diploma">Diploma</option>
+          <option value="Bachelor">Bachelor</option>
+          <option value="Masters">Masters</option>
+          <option value="PhD">PhD</option>
+        </select>
+
+        <div class="buttons">
+          <button type="button" class="prev">Previous Step</button>
+          <button type="button" class="next" disabled>Next Step</button>
+        </div>
+      </div>
+
+      <!-- Step 4 -->
+      <div class="form-step">
+        <p><strong>Step 4/4</strong></p>
+        <h3>Document Uploads</h3>
+        <p class="error" id="errorStep4">Please upload all required documents and agree to the terms.</p>
+
+        <div class="upload-box">
+          <p>Click or drag file to this area to upload</p>
+          <input type="file" accept=".pdf,.doc,.docx" multiple required>
+        </div>
+
+        <p style="font-size: 13px; color:#555; margin-bottom: 10px;">
+          Academic Transcripts, Passport, Resume
+        </p>
+
+        <div class="checkbox-group">
+          <input type="checkbox" id="agree" required>
+          <label for="agree">I Agree and Confirm that the data provided is true and Correct</label>
+        </div>
+
+        <div class="buttons">
+          <button type="button" class="prev">Previous Step</button>
+          <button type="submit" class="submit" disabled>Submit</button>
+        </div>
+      </div>
+
+    </form>
+
+    <!-- Confirmation Screen -->
+    <div class="confirmation" id="confirmationPage">
+      <img src="https://undraw.co/api/illustrations/approval/undraw_approval_re.jpg" alt="Confirmation">
+      <p>Thank you for your Application. We will review your application and get back to you</p>
+      <button class="home-btn" onclick="location.href='index.html'">Back Home</button>
+    </div>
+  </div>
+
+  <script>
+    const steps = document.querySelectorAll(".form-step");
+    const nextBtns = document.querySelectorAll(".next");
+    const prevBtns = document.querySelectorAll(".prev");
+    const progressbarItems = document.querySelectorAll(".progressbar li");
+    const form = document.getElementById("multiStepForm");
+    const submitBtn = document.querySelector(".submit");
+    let formStepIndex = 0;
+
+    // Function to check if all required fields in a step are filled
+    function checkRequiredFields(stepIndex) {
+      const step = steps[stepIndex];
+      const requiredFields = step.querySelectorAll("input[required], select[required]");
+      let allFilled = true;
+
+      requiredFields.forEach(field => {
+        if (field.type === "file") {
+          if (!field.files.length) allFilled = false;
+        } else if (field.type === "checkbox") {
+          if (!field.checked) allFilled = false;
+        } else {
+          if (!field.value.trim()) allFilled = false;
+        }
+      });
+
+      return allFilled;
+    }
+
+    // Function to toggle submit button and next buttons
+    function toggleButtons() {
+      // Toggle Next buttons
+      steps.forEach((step, index) => {
+        const nextBtn = step.querySelector(".next");
+        if (nextBtn) {
+          nextBtn.disabled = !checkRequiredFields(index);
+        }
+      });
+
+      // Toggle Submit button
+      const allRequiredFields = form.querySelectorAll("input[required], select[required]");
+      let allFormFilled = true;
+
+      allRequiredFields.forEach(field => {
+        if (field.type === "file") {
+          if (!field.files.length) allFormFilled = false;
+        } else if (field.type === "checkbox") {
+          if (!field.checked) allFormFilled = false;
+        } else {
+          if (!field.value.trim()) allFormFilled = false;
+        }
+      });
+
+      submitBtn.disabled = !allFormFilled;
+    }
+
+    // Function to update form steps and progress bar
+    function updateFormSteps() {
+      steps.forEach((step, index) => {
+        step.classList.toggle("active", index === formStepIndex);
+      });
+      progressbarItems.forEach((item, index) => {
+        item.classList.toggle("active", index <= formStepIndex);
+      });
+      document.getElementById(`errorStep${formStepIndex + 1}`).style.display = "none";
+      toggleButtons();
+    }
+
+    // Event listeners for Next buttons
+    nextBtns.forEach(btn => {
+      btn.addEventListener("click", () => {
+        if (checkRequiredFields(formStepIndex)) {
+          if (formStepIndex < steps.length - 1) {
+            formStepIndex++;
+            updateFormSteps();
+          }
+        } else {
+          document.getElementById(`errorStep${formStepIndex + 1}`).style.display = "block";
+        }
+      });
+    });
+
+    // Event listeners for Previous buttons
+    prevBtns.forEach(btn => {
+      btn.addEventListener("click", () => {
+        if (formStepIndex > 0) {
+          formStepIndex--;
+          updateFormSteps();
+        }
+      });
+    });
+
+    // Real-time validation for inputs
+    form.querySelectorAll("input[required], select[required]").forEach(field => {
+      field.addEventListener("input", toggleButtons);
+      if (field.type === "checkbox" || field.type === "file") {
+        field.addEventListener("change", toggleButtons);
+      }
+    });
+
+    // Submit handler
+    form.addEventListener("submit", function(e) {
+      e.preventDefault();
+      if (checkRequiredFields(formStepIndex)) {
+        document.getElementById("multiStepForm").style.display = "none";
+        document.querySelector(".progressbar").style.display = "none";
+        document.getElementById("confirmationPage").style.display = "block";
+      } else {
+        document.getElementById(`errorStep${formStepIndex + 1}`).style.display = "block";
+      }
+    });
+
+    // Initial button state
+    toggleButtons();
+  </script>
+
+</body>
+</html>

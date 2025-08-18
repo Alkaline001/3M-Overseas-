@@ -1,0 +1,530 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>3M Overseas Education</title>
+    <style>
+        /* Global Styles */
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: Arial, sans-serif;
+        }
+
+        body {
+            line-height: 1.6;
+            color: #333;
+        }
+
+        /* Header Styles */
+        header {
+            background-color: #e9f0ed;
+            padding: 10px 20px;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .logo img {
+            height: 50px;
+        }
+
+        nav ul {
+            list-style: none;
+            display: flex;
+            gap: 15px;
+            background-color: #d1e7dd;
+            padding: 8px 20px;
+            border-radius: 30px;
+        }
+
+        nav ul li a {
+            text-decoration: none;
+            color: #333;
+            font-size: 16px;
+            transition: color 0.3s;
+        }
+
+        nav ul li a:hover {
+            color: #007bff;
+        }
+
+        .apply-btn {
+            background-color: #007bff;
+            color: white;
+            padding: 10px 20px;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+            text-decoration: none;
+            font-size: 16px;
+        }
+
+        .apply-btn:hover {
+            background-color: #0056b3;
+        }
+
+        .menu-toggle {
+            display: none;
+            font-size: 30px;
+            cursor: pointer;
+            color: #333;
+        }
+
+        /* Footer Section */
+        footer {
+            background-color: #2e7d5f;
+            color: white;
+            padding: 40px 20px;
+        }
+
+        .footer-container {
+            max-width: 1100px;
+            margin: auto;
+            display: flex;
+            flex-wrap: wrap;
+            gap: 40px;
+            justify-content: space-between;
+        }
+
+        .footer-logo {
+            flex: 1 1 100%;
+            text-align: center;
+            margin-bottom: 20px;
+        }
+
+        .footer-logo img {
+            max-width: 80px;
+            margin-bottom: 10px;
+        }
+
+        .footer-column {
+            flex: 1 1 200px;
+        }
+
+        .footer-column h4 {
+            font-size: 16px;
+            margin-bottom: 15px;
+            border-bottom: 1px solid rgba(255,255,255,0.2);
+            padding-bottom: 5px;
+        }
+
+        .footer-column ul {
+            list-style: none;
+            padding: 0;
+            margin: 0;
+        }
+
+        .footer-column ul li {
+            margin-bottom: 10px;
+            font-size: 14px;
+        }
+
+        .footer-column ul li a {
+            color: white;
+            text-decoration: none;
+        }
+
+        .footer-column ul li a:hover {
+            text-decoration: underline;
+        }
+
+        /* Body Styles */
+        h2 {
+            font-size: 22px;
+            font-weight: bold;
+            margin-bottom: 20px;
+        }
+
+        h3 {
+            color: #006633;
+            font-size: 18px;
+            margin-bottom: 10px;
+        }
+
+        p {
+            font-size: 16px;
+        }
+
+        /* Hero Section */
+        .hero {
+            position: relative;
+            background: url('about1.png') no-repeat center center/cover;
+            color: #fff;
+            text-align: center;
+            padding: 120px 20px 80px;
+        }
+
+        .hero h1 {
+            font-size: 28px;
+            font-weight: bold;
+            margin-bottom: 15px;
+        }
+
+        .hero p {
+            font-size: 18px;
+            max-width: 800px;
+            margin: 0 auto 20px;
+        }
+
+        .hero-logos {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            gap: 40px;
+            background: #fff;
+            padding: 20px;
+            margin-top: 40px;
+            flex-wrap: wrap;
+        }
+
+        .hero-logos img {
+            height: 60px;
+            object-fit: contain;
+        }
+
+        /* Mission & Vision Section */
+        .mission-vision {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 40px;
+            padding: 60px 10%;
+            align-items: center;
+        }
+
+        .mission-vision .text {
+            flex: 1;
+            min-width: 300px;
+        }
+
+        .mission-vision .img {
+            flex: 1;
+            min-width: 300px;
+        }
+
+        .mission-vision .img img {
+            width: 100%;
+            border-radius: 8px;
+        }
+
+        /* Why Students Trust 3M Section */
+        .trust {
+            padding: 60px 10%;
+            text-align: center;
+        }
+
+        .trust-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 30px;
+        }
+
+        .trust-item img {
+            width: 100%;
+            border-radius: 8px;
+            margin-bottom: 10px;
+        }
+
+        .trust-item p {
+            font-size: 16px;
+            font-weight: 500;
+        }
+
+        /* Advisory Team Section */
+        .advisory {
+            padding: 60px 10%;
+            text-align: center;
+        }
+
+        .advisory p {
+            color: #444;
+            margin-bottom: 30px;
+        }
+
+        .advisory-img img {
+            width: 100%;
+            max-width: 800px;
+            border-radius: 10px;
+            display: block;
+            margin: 0 auto;
+        }
+
+        /* Final CTA Section */
+        .cta {
+            background: #02023a;
+            color: #fff;
+            padding: 60px 10%;
+            border-radius: 15px;
+            margin: 60px 10%;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .cta h4 {
+            font-size: 12px;
+            letter-spacing: 1px;
+            margin-bottom: 15px;
+            opacity: 0.8;
+        }
+
+        .cta h2 {
+            font-size: 22px;
+            margin-bottom: 20px;
+        }
+
+        .cta-buttons {
+            display: flex;
+            gap: 20px;
+            flex-wrap: wrap;
+        }
+
+        .cta .btn {
+            padding: 12px 24px;
+            border-radius: 6px;
+            font-size: 14px;
+            font-weight: bold;
+            border: none;
+            cursor: pointer;
+            text-decoration: none;
+        }
+
+        .btn-primary {
+            background: #28a745; /* Aligned with .apply-btn */
+            color: white;
+        }
+
+        .btn-primary:hover {
+            background: #218838; /* Aligned with .apply-btn hover */
+        }
+
+        .btn-secondary {
+            background: transparent;
+            color: #fff;
+            border: 1px solid #fff;
+        }
+
+        .btn-secondary:hover {
+            background: rgba(255,255,255,0.1);
+        }
+
+        /* Background shapes */
+        .cta::after {
+            content: "";
+            position: absolute;
+            right: -100px;
+            top: -50px;
+            width: 400px;
+            height: 400px;
+            background: url('service11.png') no-repeat center/cover;
+            opacity: 0.3;
+        }
+
+        /* Responsive Design */
+        @media (max-width: 768px) {
+            header {
+                flex-wrap: wrap;
+                position: relative;
+            }
+
+            .logo {
+                flex: 1;
+            }
+
+            .menu-toggle {
+                display: block;
+            }
+
+            nav {
+                display: none;
+                width: 100%;
+                order: 3;
+            }
+
+            nav.active {
+                display: block;
+            }
+
+            nav ul {
+                flex-direction: column;
+                align-items: center;
+                background-color: transparent;
+                padding: 10px 0;
+                border-radius: 0;
+            }
+
+            nav ul li {
+                margin: 10px 0;
+            }
+
+            .apply-btn {
+                margin-top: 10px;
+                width: 100%;
+                text-align: center;
+            }
+
+            .mission-vision {
+                flex-direction: column;
+            }
+
+            .cta {
+                margin: 40px 5%;
+                padding: 40px 20px;
+            }
+        }
+    </style>
+</head>
+<body>
+    <!-- Header Section -->
+    <header>
+        <div class="logo">
+            <img src="logo.png" alt="3M Overseas Education Logo">
+        </div>
+        <div class="menu-toggle">☰</div>
+        <nav>
+            <ul>
+                <li><a href="index.html">Home</a></li>
+                <li><a href="about.html">About Us</a></li>
+                <li><a href="studydestination.html">Study Destinations</a></li>
+                <li><a href="services.html">What We Offer</a></li>
+                <li><a href="faqs.html">FAQs</a></li>
+                <li><a href="contact.html">Contact</a></li>
+            </ul>
+        </nav>
+        <a href="apply.html" class="apply-btn">Apply Now</a>
+    </header>
+
+    <!-- HERO -->
+    <section class="hero">
+        <h1>🎓 Empowering Students to Study Globally.</h1>
+        <p>Since our inception, 3M Overseas Education Advisory Centre has helped thousands of students find their path to global education success.</p>
+        <div class="hero-logos">
+            <img src="australian.png" alt="Australian National University">
+            <img src="acadia.png" alt="Acadia University">
+            <img src="sunway.png" alt="Sunway University">
+            <img src="anglia.png" alt="Anglia Ruskin University">
+        </div>
+    </section>
+
+    <!-- MISSION & VISION -->
+    <section class="mission-vision">
+        <div class="text">
+            <h3>Our Mission</h3>
+            <p>At 3M Overseas, our mission is simple: To open doors to international education opportunities by offering expert guidance, personalized counseling, and end-to-end support.</p>
+        </div>
+        <div class="img">
+            <img src="about2.png" alt="Our Mission">
+        </div>
+    </section>
+
+    <section class="mission-vision">
+        <div class="img">
+            <img src="about3.png" alt="Our Vision">
+        </div>
+        <div class="text">
+            <h3>Our Vision</h3>
+            <p>To become Africa’s most trusted education advisory brand, connecting students with the world’s top universities.</p>
+        </div>
+    </section>
+
+    <!-- WHY STUDENTS TRUST 3M -->
+    <section class="trust">
+        <h2>Why Students Trust 3M</h2>
+        <div class="trust-grid">
+            <div class="trust-item">
+                <img src="about6.png" alt="">
+                <p>Personalized Support for Every Student</p>
+            </div>
+            <div class="trust-item">
+                <img src="about7.png" alt="">
+                <p>Direct Partnerships with Leading Universities</p>
+            </div>
+            <div class="trust-item">
+                <img src="about8.png" alt="">
+                <p>Visa and Interview Coaching</p>
+            </div>
+            <div class="trust-item">
+                <img src="about9.png" alt="">
+                <p>20,000+ Students Placed</p>
+            </div>
+            <div class="trust-item">
+                <img src="about10.png" alt="">
+                <p>End-to-End Application Help</p>
+            </div>
+        </div>
+    </section>
+
+    <!-- ADVISORY TEAM -->
+    <section class="advisory">
+        <h2>Meet Our Advisory Team</h2>
+        <p>Our experienced team brings passion, insight, and dedication to every student’s journey.</p>
+        <div class="advisory-img">
+            <img src="about11.png" alt="Advisory Team">
+        </div>
+    </section>
+
+    <!-- FINAL CTA -->
+    <section class="cta">
+        <h4>— 3M Overseas Education Advisory Center</h4>
+        <h2>Ready to Start Your Study Abroad Journey?</h2>
+        <div class="cta-buttons">
+            <a href="apply.html" class="btn btn-primary">Apply Now</a>
+            <a href="#" class="btn btn-secondary">Book Free Consultation</a>
+        </div>
+    </section>
+
+    <!-- Footer Section -->
+    <footer id="contact">
+        <div class="footer-container">
+            <div class="footer-logo">
+                <img src="logo.png" alt="3M Overseas Education Logo">
+            </div>
+            <div class="footer-column">
+                <h4>Reach Us</h4>
+                <ul>
+                    <li>📞 +254 722 861 025</li>
+                    <li>✉ enquiries@3moverseaseducation.co.ke</li>
+                    <li>📍 10th Floor, Bruce House, South Wing, Standard Street</li>
+                </ul>
+            </div>
+            <div class="footer-column">
+                <h4>Company</h4>
+                <ul>
+                    <li><a href="#services">What We Do</a></li>
+                    <li><a href="#how-it-works">How It Works</a></li>
+                    <li><a href="#testimonials">Testimonials</a></li>
+                    <li><a href="#contact">Contact</a></li>
+                </ul>
+            </div>
+            <div class="footer-column">
+                <h4>Legal</h4>
+                <ul>
+                    <li><a href="#">Privacy Policy</a></li>
+                    <li><a href="#">Terms & Services</a></li>
+                    <li><a href="#">Terms of Use</a></li>
+                    <li><a href="#">Refund Policy</a></li>
+                </ul>
+            </div>
+            <div class="footer-column">
+                <h4>Quick Links</h4>
+                <ul>
+                    <li><a href="#">Techlabz Keybox</a></li>
+                    <li><a href="#">Downloads</a></li>
+                    <li><a href="#">Forum</a></li>
+                </ul>
+            </div>
+        </div>
+    </footer>
+
+    <!-- JavaScript for Menu Toggle -->
+    <script>
+        const menuToggle = document.querySelector('.menu-toggle');
+        const nav = document.querySelector('nav');
+
+        menuToggle.addEventListener('click', () => {
+            nav.classList.toggle('active');
+        });
+    </script>
+</body>
+</html>
