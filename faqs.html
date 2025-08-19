@@ -89,6 +89,7 @@
             justify-content: space-between;
         }
 
+        /* Footer logo */
         .footer-logo {
             flex: 1 1 100%;
             text-align: center;
@@ -102,8 +103,10 @@
 
         .footer-column {
             flex: 1 1 200px;
+            min-width: 150px;   /* ensures columns shrink nicely */
         }
 
+        /* Column heading */
         .footer-column h4 {
             font-size: 16px;
             margin-bottom: 15px;
@@ -111,6 +114,7 @@
             padding-bottom: 5px;
         }
 
+        /* Column links */
         .footer-column ul {
             list-style: none;
             padding: 0;
@@ -148,10 +152,14 @@
         }
 
         .faq-text h2 {
-            font-size: 28px;
+            font-size: 25px;
             font-weight: 700;
-            color: #111827;
-            margin-bottom: 15px;
+            text-transform: uppercase;
+            color: #0657ad;
+            text-align: center;
+            position: relative;
+            margin-bottom: 30px;
+            letter-spacing: 1px;
         }
 
         .faq-text p {
@@ -179,9 +187,19 @@
         .accordion-section h2 {
             font-size: 24px;
             font-weight: 700;
-            color: #111827;
+            color: #0657ad;
             text-align: center;
             margin: 40px 0 20px;
+        }
+
+        .accordion-section h2::after {
+            content: "";
+            display: block;
+            width: 60px;
+            height: 3px;
+            background-color: #0657ad;
+            margin: 8px auto 0;
+            border-radius: 2px;
         }
 
         .accordion-item {
@@ -356,8 +374,19 @@
             }
 
             .footer-container {
-                flex-direction: column;
-                text-align: center;
+                margin: auto;
+                display: flex;
+                flex-wrap: wrap;
+                gap: 20px; /* Reduced gap for small screens */
+                justify-content: space-between;
+                align-items: center; /* Center items vertically */
+                text-align: center; /* Center text */
+            }
+
+            .footer-column {
+                flex: 1 1 100%; /* Each column takes full width */
+                min-width: 0; /* Allow columns to shrink */
+                margin-bottom: 20px; /* Add spacing between columns */
             }
         }
     </style>

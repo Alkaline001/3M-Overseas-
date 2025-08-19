@@ -535,6 +535,18 @@
         flex: 1 1 150px;
         text-align: center;
     }
+
+    .hero-banner {
+        height: 50vh;
+    }
+
+    .hero-content h1 {
+        font-size: 32px;
+    }
+
+    .hero-content p {
+        font-size: 18px;
+    }
 }
         
 
@@ -649,10 +661,10 @@
             <div class="slide slide3"></div>
             <div class="slide slide4"></div>
         </div>
-        <div class="hero-content">
-            <h1>We make your application experience super easy!</h1>
-            <p>It doesn't have to be as complex</p>
-            <a href="#" class="btn btn-primary">Learn More</a>
+        <div class="hero-content" id="hero-content">
+            <h1></h1>
+            <p></p>
+            <a href="#" class="btn btn-primary"></a>
         </div>
         <div class="prev">&#9664;</div>
         <div class="next">&#9654;</div>
@@ -940,14 +952,55 @@
         const slides = document.getElementsByClassName("slide");
         const prevBtn = document.querySelector(".prev");
         const nextBtn = document.querySelector(".next");
+        const heroContentElement = document.getElementById("hero-content");
+        const heroH1 = heroContentElement.querySelector('h1');
+        const heroP = heroContentElement.querySelector('p');
+        const heroBtn = heroContentElement.querySelector('a');
         let timer;
+
+        const heroContents = [
+            {
+                h1: "We make your application experience super easy!",
+                p: "It doesn't have to be as complex",
+                btnText: "Learn More",
+                btnHref: "#"
+            },
+            {
+                h1: "Discover World-Class Education Opportunities",
+                p: "Explore top universities across the globe with expert guidance",
+                btnText: "Explore Destinations",
+                btnHref: "#destinations"
+            },
+            {
+                h1: "Achieve Your Graduation Dreams Abroad",
+                p: "Graduate with honors and launch an international career",
+                btnText: "Get Started",
+                btnHref: "#cta"
+            },
+            {
+                h1: "Personalized Support for Your Study Journey",
+                p: "From applications to visas, we're here every step of the way",
+                btnText: "Book Consultation",
+                btnHref: "#contact"
+            }
+        ];
 
         // Initial setup
         for (let i = 0; i < slides.length; i++) {
             slides[i].style.opacity = 0;
             slides[i].style.transform = "translateX(0)";
+            slides[i].style.display = i === 0 ? "block" : "none";
         }
         slides[slideIndex].style.opacity = 1;
+
+        function updateHeroContent(index) {
+            heroH1.textContent = heroContents[index].h1;
+            heroP.textContent = heroContents[index].p;
+            heroBtn.textContent = heroContents[index].btnText;
+            heroBtn.href = heroContents[index].btnHref;
+        }
+
+        updateHeroContent(slideIndex);
 
         function changeSlide(dir) {
             const current = slideIndex;
@@ -975,6 +1028,7 @@
             }, 1000);
 
             slideIndex = next;
+            updateHeroContent(slideIndex);
 
             // Reset timer for auto slide
             clearInterval(timer);
