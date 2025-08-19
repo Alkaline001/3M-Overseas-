@@ -91,7 +91,7 @@
         .destinations-header h2 {
             font-size: 20px;
             font-weight: bold;
-            color: #0a0a3c;
+            color: #0056b3;
             margin: 0;
         }
 
@@ -140,6 +140,12 @@
             text-align: center;
         }
 
+        .destination a {
+            text-decoration: none;
+            color: inherit;
+            display: block;
+        }
+
         .destination img {
             width: 100%;
             height: auto;
@@ -181,6 +187,26 @@
             max-width: 100%;
             height: auto;
         }
+
+        .destinations-container h2,
+.country-choice h2 {
+    font-size: 22px;
+    font-weight: bold;
+    color: #0056b3;
+    text-transform: uppercase;
+    margin-bottom: 5px;
+    text-align: center;
+}
+
+.destinations-container h2::after,
+.country-choice h2::after {
+    content: "";
+    display: block;
+    width: 50px;
+    height: 3px;
+    background: #00aaff;
+    margin: 10px auto;
+}
 
         /* Call-to-Action Banner Section */
         .cta-banner {
@@ -329,35 +355,83 @@
         /* HERO SECTION */
         .hero-banner {
             position: relative;
-            height: 100vh; /* full screen height */
+            height: 100vh;
             display: flex;
             align-items: center;
             justify-content: center;
             text-align: center;
             color: white;
-            background: url('std1.png') no-repeat center center/cover;
+            overflow: hidden;
         }
+
+        .hero-slideshow {
+            position: absolute;
+            inset: 0;
+            width: 100%;
+            height: 100%;
+            z-index: 0;
+        }
+
+        .slide {
+            position: absolute;
+            inset: 0;
+            background-size: cover;
+            background-position: center;
+            opacity: 0;
+            transition: opacity 1s ease-in-out, transform 1s ease-in-out;
+        }
+
+        /* Replace std1.png…std4.png with your real images */
+        .slide1 { background-image: url("std1.png"); }
+        .slide2 { background-image: url("std4.png"); }
+        .slide3 { background-image: url("graduation.png"); }
+        .slide4 { background-image: url("grad2.png"); }
+
         .hero-banner::after {
             content: "";
             position: absolute;
             inset: 0;
-            background: rgba(0, 0, 0, 0.5); /* dark overlay */
+            background: rgba(0,0,0,0.5);
+            z-index: 1;
         }
+
         .hero-content {
             position: relative;
-            z-index: 1;
+            z-index: 2;
             max-width: 800px;
             padding: 0 15px;
+            text-align: center;
         }
+
         .hero-content h1 {
-            font-size: 28px;
-            font-weight: bold;
-            margin-bottom: 15px;
+            font-size: 48px;
+            margin-bottom: 10px;
         }
+
         .hero-content p {
-            font-size: 16px;
-            margin-bottom: 30px;
-            line-height: 1.6;
+            font-size: 24px;
+            margin-bottom: 20px;
+        }
+
+        .prev, .next {
+            position: absolute;
+            top: 50%;
+            transform: translateY(-50%);
+            background-color: rgba(0,0,0,0.5);
+            color: white;
+            padding: 10px;
+            border-radius: 50%;
+            cursor: pointer;
+            font-size: 20px;
+            z-index: 3;
+        }
+
+        .prev {
+            left: 20px;
+        }
+
+        .next {
+            right: 20px;
         }
 
         /* BUTTONS */
@@ -373,12 +447,12 @@
             transition: all 0.3s ease;
         }
         .btn-primary {
-            background: #0d3b66; /* deep navy blue */
+            background: #007bff;
             color: white;
             border: none;
         }
         .btn-primary:hover {
-            background: #09294a;
+            background: #0056b3;
         }
         .btn-secondary {
             background: transparent;
@@ -439,7 +513,7 @@
             }
 
             .destinations-grid {
-                grid-template-columns: 1fr;
+                grid-template-columns: repeat(3, 1fr);
             }
 
             .cta-banner {
@@ -452,11 +526,100 @@
                 justify-content: center;
             }
 
-            .footer-container {
-                flex-direction: column;
-                text-align: center;
-            }
-        }
+           .footer-container {
+        flex-wrap: wrap;
+        justify-content: center;
+        text-align: left; /* keeps columns aligned nicely */
+    }
+    .footer-column {
+        flex: 1 1 150px;
+        text-align: center;
+    }
+}
+        
+
+         .section {
+      max-width: 1100px;
+      margin: 50px auto;
+      padding: 20px;
+      text-align: center;
+    }
+
+    .section h2 {
+      font-size: 22px;
+      font-weight: bold;
+      color: #0056b3;
+      text-transform: uppercase;
+      margin-bottom: 5px;
+    }
+
+    .section h2::after {
+      content: "";
+      display: block;
+      width: 50px;
+      height: 3px;
+      background: #00aaff;
+      margin: 10px auto;
+    }
+
+    .faq-grid {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 20px;
+      margin-top: 30px;
+    }
+
+    details {
+      background: #f9f9f9;
+      border: 1px solid #eee;
+      padding: 15px 20px;
+      border-radius: 5px;
+      cursor: pointer;
+      text-align: left;
+      transition: all 0.3s ease;
+    }
+
+    details[open] {
+      background: #fff;
+      border-color: #00aa55;
+    }
+
+    summary {
+      font-size: 16px;
+      font-weight: 500;
+      color: #009933;
+      outline: none;
+      list-style: none;
+    }
+
+    summary::-webkit-details-marker {
+      display: none;
+    }
+
+    summary::before {
+      content: "▾";
+      margin-right: 8px;
+      color: #333;
+      font-size: 14px;
+      transition: transform 0.3s ease;
+    }
+
+    details[open] summary::before {
+      transform: rotate(-180deg);
+    }
+
+    details p {
+      margin-top: 10px;
+      font-size: 14px;
+      color: #333;
+      line-height: 1.5;
+    }
+
+    @media (max-width: 768px) {
+      .faq-grid {
+        grid-template-columns: 1fr;
+      }
+    }
     </style>
 </head>
 <body>
@@ -480,14 +643,50 @@
     </header>
     <!-- Hero section -->
     <section class="hero-banner">
-        <div class="hero-content">
-            <h1>Where Do You Dream Of Studying ?</h1>
-            <p>Explore to study destinations across the globe—from Ivy League Universities in the US <br>
-                to research powerhouses in Germany. 3M is here to guide you every step of the way.</p>
-            <a href="apply.html" class="btn btn-primary">Apply Now</a>
-            <a href="#" class="btn btn-secondary">Book Free Consultation</a>
+        <div class="hero-slideshow">
+            <div class="slide slide1"></div>
+            <div class="slide slide2"></div>
+            <div class="slide slide3"></div>
+            <div class="slide slide4"></div>
         </div>
+        <div class="hero-content">
+            <h1>We make your application experience super easy!</h1>
+            <p>It doesn't have to be as complex</p>
+            <a href="#" class="btn btn-primary">Learn More</a>
+        </div>
+        <div class="prev">&#9664;</div>
+        <div class="next">&#9654;</div>
     </section>
+
+    <section class="section">
+    <h2>WHAT'S ON YOUR MIND ABOUT STUDYING ABROAD?</h2>
+    <div class="faq-grid">
+      <details>
+        <summary>I want to study abroad but I have a tight budget</summary>
+        <p>No worries! Many countries like Germany, Poland, and the Czech Republic offer low or no tuition fees for international students. We can help you find scholarships, part-time work opportunities, and affordable living options to make your dream a reality.</p>
+      </details>
+      <details>
+        <summary>My grades may be too low for a degree course</summary>
+        <p>Grades aren't everything. Many universities offer foundation or pathway programs to bridge the gap. We can match you with institutions that value your potential, work experience, or other qualifications beyond just academics.</p>
+      </details>
+      <details>
+        <summary>I have work experience. I hope that counts</summary>
+        <p>Absolutely! Programs in countries like Canada, Australia, and the UK often consider professional experience for admissions, especially in MBA or postgraduate courses. We'll highlight your strengths in your application.</p>
+      </details>
+      <details>
+        <summary>I don’t see the need to do the English tests like IELTS/TOEFL/PTE</summary>
+        <p>While some universities waive these for certain applicants (e.g., if you've studied in English), most require proof of language proficiency for visas and admissions. We can guide you on alternatives or preparation to make the process smooth.</p>
+      </details>
+      <details>
+        <summary>I need a fast university & visa process for my child to travel abroad ASAP</summary>
+        <p>We specialize in expedited applications. Countries like Ireland and New Zealand have quicker visa timelines. Our team can prioritize your case, prepare documents efficiently, and connect you with universities offering rolling admissions.</p>
+      </details>
+      <details>
+        <summary>Am I too old to change careers or study abroad?</summary>
+        <p>Age is no barrier! Many mature students pursue studies abroad for career shifts. Programs cater to all ages, and countries like the US and UK have supportive policies. We'll help you find flexible options that fit your life stage.</p>
+      </details>
+    </div>
+  </section>
 
     <!-- Top Destinations Section -->
     <div class="destinations-container" id="destinations">
@@ -500,36 +699,106 @@
         </div>
         <div class="destinations-grid" id="destinations-grid">
             <div class="destination" data-name="Australia">
-                <img src="https://flagcdn.com/w320/au.png" alt="Australia Flag">
-                <p>Australia</p>
+                <a href="australia.html">
+                    <img src="https://flagcdn.com/w320/au.png" alt="Australia Flag">
+                    <p>Australia</p>
+                </a>
             </div>
             <div class="destination" data-name="Canada">
-                <img src="https://flagcdn.com/w320/ca.png" alt="Canada Flag">
-                <p>Canada</p>
+                <a href="canada.html">
+                    <img src="https://flagcdn.com/w320/ca.png" alt="Canada Flag">
+                    <p>Canada</p>
+                </a>
             </div>
-            <div class="destination" data-name="Malaysia">
-                <img src="https://flagcdn.com/w320/my.png" alt="Malaysia Flag">
-                <p>Malaysia</p>
-            </div>
-            <div class="destination" data-name="United Kingdom">
-                <img src="https://flagcdn.com/w320/gb.png" alt="United Kingdom Flag">
-                <p>United Kingdom</p>
-            </div>
-            <div class="destination" data-name="Germany">
-                <img src="https://flagcdn.com/w320/de.png" alt="Germany Flag">
-                <p>Germany</p>
+            <div class="destination" data-name="Czech Republic">
+                <a href="czech-republic.html">
+                    <img src="https://flagcdn.com/w320/cz.png" alt="Czech Republic Flag">
+                    <p>Czech Republic</p>
+                </a>
             </div>
             <div class="destination" data-name="Finland">
-                <img src="https://flagcdn.com/w320/fi.png" alt="Finland Flag">
-                <p>Finland</p>
+                <a href="finland.html">
+                    <img src="https://flagcdn.com/w320/fi.png" alt="Finland Flag">
+                    <p>Finland</p>
+                </a>
             </div>
-            <div class="destination" data-name="India">
-                <img src="https://flagcdn.com/w320/in.png" alt="India Flag">
-                <p>India</p>
+            <div class="destination" data-name="Germany">
+                <a href="germany.html">
+                    <img src="https://flagcdn.com/w320/de.png" alt="Germany Flag">
+                    <p>Germany</p>
+                </a>
             </div>
-            <div class="destination" data-name="Other Countries">
-                <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/3/3e/Plus_symbol.svg/1024px-Plus_symbol.svg.png" alt="Other Countries">
-                <p>Other Countries</p>
+            <div class="destination" data-name="Italy">
+                <a href="italy.html">
+                    <img src="https://flagcdn.com/w320/it.png" alt="Italy Flag">
+                    <p>Italy</p>
+                </a>
+            </div>
+            <div class="destination" data-name="Ireland">
+                <a href="ireland.html">
+                    <img src="https://flagcdn.com/w320/ie.png" alt="Ireland Flag">
+                    <p>Ireland</p>
+                </a>
+            </div>
+            <div class="destination" data-name="New Zealand">
+                <a href="new-zealand.html">
+                    <img src="https://flagcdn.com/w320/nz.png" alt="New Zealand Flag">
+                    <p>New Zealand</p>
+                </a>
+            </div>
+            <div class="destination" data-name="The Netherlands">
+                <a href="the-netherlands.html">
+                    <img src="https://flagcdn.com/w320/nl.png" alt="The Netherlands Flag">
+                    <p>The Netherlands</p>
+                </a>
+            </div>
+            <div class="destination" data-name="North Cyprus">
+                <a href="north-cyprus.html">
+                    <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/1/1e/Flag_of_the_Turkish_Republic_of_Northern_Cyprus.svg/320px-Flag_of_the_Turkish_Republic_of_Northern_Cyprus.svg.png" alt="North Cyprus Flag">
+                    <p>North Cyprus</p>
+                </a>
+            </div>
+            <div class="destination" data-name="Poland">
+                <a href="poland.html">
+                    <img src="https://flagcdn.com/w320/pl.png" alt="Poland Flag">
+                    <p>Poland</p>
+                </a>
+            </div>
+            <div class="destination" data-name="Spain">
+                <a href="spain.html">
+                    <img src="https://flagcdn.com/w320/es.png" alt="Spain Flag">
+                    <p>Spain</p>
+                </a>
+            </div>
+            <div class="destination" data-name="Switzerland">
+                <a href="switzerland.html">
+                    <img src="https://flagcdn.com/w320/ch.png" alt="Switzerland Flag">
+                    <p>Switzerland</p>
+                </a>
+            </div>
+            <div class="destination" data-name="Turkey">
+                <a href="turkey.html">
+                    <img src="https://flagcdn.com/w320/tr.png" alt="Turkey Flag">
+                    <p>Turkey</p>
+                </a>
+            </div>
+            <div class="destination" data-name="UK">
+                <a href="uk.html">
+                    <img src="https://flagcdn.com/w320/gb.png" alt="UK Flag">
+                    <p>UK</p>
+                </a>
+            </div>
+            <div class="destination" data-name="US">
+                <a href="us.html">
+                    <img src="https://flagcdn.com/w320/us.png" alt="US Flag">
+                    <p>US</p>
+                </a>
+            </div>
+            <div class="destination" data-name="Online Studies">
+                <a href="online-studies.html">
+                    <img src="https://cdn-icons-png.flaticon.com/512/686/686051.png" alt="Online Studies Icon">
+                    <p>Online Studies</p>
+                </a>
             </div>
         </div>
     </div>
@@ -541,7 +810,7 @@
             Choosing the right destination shapes your academic and career future. 
             We help you match your interests, budget, and goals with the best-fit country and university.
         </p>
-        <img src="std2.png" alt="World map with people">
+        <img src="Global-Edu.jpg" alt="World map with people">
     </section>
 
     <!-- Call-to-Action Banner Section -->
@@ -663,6 +932,61 @@
         menuToggle.addEventListener('click', () => {
             nav.classList.toggle('active');
         });
+    </script>
+
+    <!-- JavaScript for Hero Slider -->
+    <script>
+        let slideIndex = 0;
+        const slides = document.getElementsByClassName("slide");
+        const prevBtn = document.querySelector(".prev");
+        const nextBtn = document.querySelector(".next");
+        let timer;
+
+        // Initial setup
+        for (let i = 0; i < slides.length; i++) {
+            slides[i].style.opacity = 0;
+            slides[i].style.transform = "translateX(0)";
+        }
+        slides[slideIndex].style.opacity = 1;
+
+        function changeSlide(dir) {
+            const current = slideIndex;
+            let next = slideIndex + dir;
+            if (next >= slides.length) next = 0;
+            if (next < 0) next = slides.length - 1;
+
+            // Prepare next slide
+            slides[next].style.transform = `translateX(${dir * 100}%)`;
+            slides[next].style.opacity = 0;
+            slides[next].style.display = "block"; // Ensure it's visible for transition
+
+            // Force reflow
+            slides[next].offsetHeight;
+
+            // Transition
+            slides[current].style.transform = `translateX(${-dir * 100}%)`;
+            slides[current].style.opacity = 0;
+            slides[next].style.transform = "translateX(0)";
+            slides[next].style.opacity = 1;
+
+            // After transition
+            setTimeout(() => {
+                slides[current].style.display = "none";
+            }, 1000);
+
+            slideIndex = next;
+
+            // Reset timer for auto slide
+            clearInterval(timer);
+            timer = setInterval(() => changeSlide(1), 5000);
+        }
+
+        // Auto slide
+        timer = setInterval(() => changeSlide(1), 5000);
+
+        // Event listeners for arrows
+        prevBtn.addEventListener("click", () => changeSlide(-1));
+        nextBtn.addEventListener("click", () => changeSlide(1));
     </script>
 </body>
 </html>
