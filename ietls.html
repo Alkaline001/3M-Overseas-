@@ -1,0 +1,540 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="description" content="Professional IELTS exam coaching and preparation courses to help you achieve your desired band score.">
+  <meta http-equiv="Content-Security-Policy" content="default-src 'self'; img-src 'self' https://images.unsplash.com; style-src 'self' 'unsafe-inline' https://fonts.googleapis.com; font-src 'self' https://fonts.gstatic.com;">
+  <title>IELTS Exam Coaching & Preparation</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;500;700&display=swap" rel="stylesheet">
+  <style>
+    :root {
+      --primary-color: #450364;
+      --secondary-color: #28a745;
+      --text-color: #333;
+      --bg-light: #f9f9f9;
+      --bg-white: #fff;
+      --overlay: rgba(0, 0, 0, 0.4);
+    }
+
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+      font-family: 'Roboto', sans-serif;
+    }
+
+    body {
+      color: var(--text-color);
+      line-height: 1.6;
+    }
+
+    /* Hero Section */
+    .ielts-hero {
+      position: relative;
+      width: 100%;
+      height: 400px;
+      background: url('kehl150.jpg') 
+        no-repeat center center/cover;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      text-align: center;
+    }
+
+    .ielts-hero::after {
+      content: "";
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      background: var(--overlay);
+    }
+
+    .ielts-hero h1 {
+      position: relative;
+      color: #fff;
+      font-size: 2.5rem;
+      font-weight: 700;
+      text-shadow: 1px 1px 4px rgba(0,0,0,0.7);
+      z-index: 1;
+      max-width: 80%;
+    }
+
+    /* General Section Styles */
+    section {
+      padding: 4rem 1.25rem;
+      text-align: center;
+    }
+
+    h2 {
+      color: var(--primary-color);
+      font-size: 1.75rem;
+      font-weight: 700;
+      margin-bottom: 1.5rem;
+    }
+
+    p {
+      max-width: 800px;
+      margin: 0 auto 1.25rem;
+      font-size: 1rem;
+      line-height: 1.7;
+      text-align: left;
+    }
+
+    /* Content Section */
+    .ielts-content {
+      background: var(--bg-white);
+    }
+
+    /* Types Section */
+    .ielts-types {
+      background: var(--bg-light);
+    }
+
+    .ielts-type {
+      max-width: 900px;
+      margin: 0 auto 1.5rem;
+      text-align: left;
+    }
+
+    .ielts-type h3 {
+      color: var(--primary-color);
+      font-size: 1.25rem;
+      font-weight: 500;
+      margin-bottom: 0.5rem;
+    }
+
+    /* Fees Section */
+    .ielts-fees {
+      background: var(--bg-white);
+    }
+
+    .table-container {
+      max-width: 800px;
+      margin: 0 auto 1.5rem;
+      overflow-x: auto;
+    }
+
+    table {
+      width: 100%;
+      border-collapse: collapse;
+      font-size: 1rem;
+    }
+
+    th, td {
+      padding: 1rem;
+      border: 1px solid #ddd;
+      text-align: left;
+    }
+
+    th {
+      background: var(--bg-light);
+      font-weight: 700;
+    }
+
+    tr:nth-child(even) {
+      background: var(--bg-light);
+    }
+
+    /* Button */
+    .btn {
+      display: inline-block;
+      padding: 0.75rem 1.5rem;
+      background: var(--secondary-color);
+      color: #fff;
+      font-size: 1rem;
+      font-weight: 500;
+      text-decoration: none;
+      border-radius: 4px;
+      transition: background 0.3s ease;
+    }
+
+    .btn:hover {
+      background: #218838;
+    }
+
+    /* Preparation Section */
+    .ielts-preparation {
+      background: var(--bg-light);
+    }
+
+    .ielts-preparation h3 {
+      color: var(--text-color);
+      font-size: 1.25rem;
+      font-weight: 500;
+      margin-bottom: 1rem;
+    }
+
+    .ielts-preparation ul {
+      max-width: 800px;
+      margin: 0 auto;
+      text-align: left;
+      list-style-type: disc;
+      padding-left: 1.25rem;
+    }
+
+    .ielts-preparation li {
+      margin-bottom: 0.75rem;
+    }
+
+    /* Classes Section */
+    .ielts-classes {
+      background: var(--bg-white);
+    }
+
+    .ielts-classes .table-container {
+      max-width: 1000px;
+    }
+
+    .ielts-classes th, .ielts-classes td {
+      text-align: center;
+      vertical-align: middle;
+    }
+
+    .class-note {
+      font-size: 0.9375rem;
+      margin-bottom: 1.25rem;
+      color: var(--text-color);
+      text-align: center;
+    }
+
+    .ielts-classes h3 {
+      color: var(--primary-color);
+      font-size: 1.25rem;
+      font-weight: 500;
+      margin: 1.5rem 0 1rem;
+    }
+
+    .fees {
+      font-size: 1rem;
+      line-height: 1.7;
+      text-align: left;
+      max-width: 800px;
+      margin: 0 auto;
+    }
+
+    .fees em {
+      font-style: italic;
+      font-weight: 500;
+    }
+
+    /* Responsive Design */
+    @media (max-width: 768px) {
+      .ielts-hero {
+        height: 300px;
+      }
+
+      .ielts-hero h1 {
+        font-size: 1.75rem;
+      }
+
+      h2 {
+        font-size: 1.5rem;
+      }
+
+      p, table {
+        font-size: 0.9375rem;
+      }
+
+      .ielts-type h3, .ielts-preparation h3, .ielts-classes h3 {
+        font-size: 1.125rem;
+      }
+    }
+
+    /* Header Styles */
+    header {
+      background-color: #e9f0ed;
+      padding: 10px 20px;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+    }
+
+    .logo img {
+      height: 50px;
+    }
+
+    nav ul {
+      list-style: none;
+      display: flex;
+      gap: 15px;
+      background-color: #d1e7dd;
+      padding: 8px 20px;
+      border-radius: 30px;
+    }
+
+    nav ul li a {
+      text-decoration: none;
+      color: #333;
+      font-size: 16px;
+      transition: color 0.3s;
+    }
+
+    nav ul li a:hover {
+      color: #007bff;
+    }
+
+    .apply-btn {
+      background-color: #450364;
+      color: white;
+      padding: 10px 20px;
+      border: none;
+      border-radius: 5px;
+      cursor: pointer;
+      text-decoration: none;
+      font-size: 16px;
+    }
+
+    .apply-btn:hover {
+      background-color: #0056b3;
+    }
+
+    .menu-toggle {
+      display: none;
+      font-size: 30px;
+      cursor: pointer;
+      color: #333;
+    }
+    .footer {
+            background-color: #450364;
+            padding: 10px;
+            position: fixed;
+            width: 100%;
+            bottom: 0;
+            color: #fff;
+            font-size: 12px;
+            text-align: center;
+        }
+    /* Responsive Design for Header */
+    @media (max-width: 768px) {
+  header {
+    flex-wrap: wrap;
+    position: relative;
+  }
+
+  .logo {
+    flex: 1;
+  }
+
+  .menu-toggle {
+    display: block;
+  }
+
+  nav {
+    display: none;   /* hidden by default */
+    width: 100%;
+    order: 3;
+  }
+
+  nav.active {
+    display: block !important;  /* make sure it overrides */
+  }
+
+  nav ul {
+    flex-direction: column;
+    align-items: center;
+    background-color: #d1e7dd; /* ✅ restore visible background */
+    padding: 10px 0;
+    border-radius: 0;
+    gap: 0;
+  }
+
+  nav ul li {
+    margin: 10px 0;
+  }
+
+  .apply-btn {
+    margin-top: 10px;
+    width: 100%;
+    text-align: center;
+  }
+}
+
+
+  </style>
+</head>
+<body>
+
+  <!-- Header Section -->
+  <header>
+    <div class="logo">
+      <img src="logo.png" alt="3M Overseas Education Logo">
+    </div>
+    <div class="menu-toggle">☰</div>
+    <nav>
+      <ul>
+        <li><a href="index.html">Home</a></li>
+        <li><a href="about.html">About Us</a></li>
+        <li><a href="studydestination.html">Study Destinations</a></li>
+        <li><a href="services.html">What We Offer</a></li>
+        <li><a href="faqs.html">FAQs</a></li>
+        <li><a href="contact.html">Contact</a></li>
+      </ul>
+    </nav>
+    <a href="apply.html" class="apply-btn">Apply Now</a>
+  </header>
+
+  <!-- Hero Section -->
+  <section class="ielts-hero">
+    <h1>IELTS Exam Coaching & Bookings</h1>
+  </section>
+
+  <!-- Content Section -->
+  <section class="ielts-content">
+    <h2>What is IELTS?</h2>
+    <p>
+      The <strong>International English Language Testing System (IELTS)</strong> assesses proficiency in the English language. 
+      IELTS measures English competency of individuals who want to study or work in places where English is the mode of communication.
+    </p>
+    <p>
+      The skillfulness in English language is determined on a nine-band scale. The scale ranges from band score 1 (nonuser) to band score 9 (expert). 
+      The exam tests four skills: <strong>Listening, Reading, Writing and Speaking skills</strong>.
+    </p>
+  </section>
+
+  <!-- Types Section -->
+  <section class="ielts-types">
+    <h2>Types of IELTS Tests</h2>
+    
+    <div class="ielts-type">
+      <h3>IELTS Academic</h3>
+      <p>
+        The IELTS Academic test is suitable for candidates applying for higher education or professional registration in English-speaking countries. It is applicable for undergraduate and postgraduate levels.
+      </p>
+    </div>
+
+    <div class="ielts-type">
+      <h3>IELTS General Training</h3>
+      <p>
+        The IELTS General Training Test is for individuals migrating for work experience, training programs, or secondary education in an English-speaking environment. 
+        The test assesses survival skills in workplace and social settings.
+      </p>
+    </div>
+  </section>
+
+  <!-- Fees Section -->
+  <section class="ielts-fees">
+    <h2>IELTS Exam Fees</h2>
+
+    <div class="table-container">
+      <table>
+        <thead>
+          <tr>
+            <th>Tests We Offer</th>
+            <th>Fee</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr>
+            <td>IELTS Academic - In Centre (Paper or Computer)</td>
+            <td>KES 38,760</td>
+          </tr>
+          <tr>
+            <td>IELTS General Training - In Centre (Paper or Computer)</td>
+            <td>KES 38,760</td>
+          </tr>
+          <tr>
+            <td>IELTS for UKVI Academic - In Centre</td>
+            <td>KES 38,760</td>
+          </tr>
+          <tr>
+            <td>IELTS for UKVI General Training - In Centre</td>
+            <td>KES 38,760</td>
+          </tr>
+          <tr>
+            <td>IELTS for UKVI Life Skills (A1 and B1) - In Centre</td>
+            <td>KES 30,000</td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+
+    <a href="#" class="btn">Inquire or Book an Exam</a>
+  </section>
+
+  <!-- Preparation Course Section -->
+  <section class="ielts-preparation">
+    <h2>IELTS Preparation Course</h2>
+    <h3>Why Prepare with Us?</h3>
+    <p>
+      Our IELTS preparation courses provide exposure to actual IELTS tasks and are taught by qualified and experienced IELTS teachers. In each course, you will:
+    </p>
+
+    <ul>
+      <li>Get tips and strategies to help you in the exam</li>
+      <li>Become familiar with the format of the exam</li>
+      <li>Practice writing for both parts of the writing exam and receive feedback from the teacher</li>
+      <li>Have the opportunity to practice all sections of the exam</li>
+      <li>Learn useful vocabulary and grammar</li>
+    </ul>
+  </section>
+
+  <!-- Classes Section -->
+  <section class="ielts-classes">
+    <h2>Evening Classes (Virtual)</h2>
+
+    <div class="table-container">
+      <table>
+        <thead>
+          <tr>
+            <th>Time (GMT+10 AEST)</th>
+            <th>Monday</th>
+            <th>Tuesday</th>
+            <th>Wednesday</th>
+            <th>Thursday</th>
+            <th>Friday</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr>
+            <td>5:30 PM - 6:30 PM</td>
+            <td>Writing Task 2</td>
+            <td>Speaking</td>
+            <td>Mock Exam</td>
+            <td>Speaking</td>
+            <td>Listening</td>
+          </tr>
+          <tr>
+            <td>6:40 PM - 7:40 PM</td>
+            <td>Reading</td>
+            <td>Writing Task 1 Academic &<br>Writing Task 1 General<br>(Taught separately)</td>
+            <td>Mock Exam</td>
+            <td>Writing Task 2</td>
+            <td>Reading</td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+
+    <p class="class-note">
+      We offer flexibility – start your classes any day of the week!
+    </p>
+
+    <h3>Course Fees</h3>
+    <p class="fees">
+      <em>Virtual classes:</em> KES 10,000 + VAT (Payable in two installments)<br>
+      <em>Face-to-face classes:</em> KES 15,000 + VAT (Payable in two installments)
+    </p>
+  </section>
+
+  
+  <!-- JavaScript for Menu Toggle -->
+    <script>
+  const menuToggle = document.querySelector('.menu-toggle');
+  const nav = document.querySelector('nav');
+
+  menuToggle.addEventListener('click', () => {
+    nav.classList.toggle('active');
+  });
+</script>
+
+
+    <div class="footer">
+        © 2025 - 3M Overseas - All Rights Reserved | Privacy Policy
+    </div>
+</body>
+</html>
