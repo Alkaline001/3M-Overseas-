@@ -25,10 +25,14 @@
             display: flex;
             justify-content: space-between;
             align-items: center;
+            position: sticky;
+            top: 0;
+            z-index: 1000;
         }
 
         .logo img {
             height: 50px;
+            width: auto;
         }
 
         nav ul {
@@ -60,6 +64,7 @@
             cursor: pointer;
             text-decoration: none;
             font-size: 16px;
+            transition: background-color 0.3s;
         }
 
         .apply-btn:hover {
@@ -97,6 +102,7 @@
 
         .footer-logo img {
             max-width: 80px;
+            width: auto;
             margin-bottom: 10px;
         }
 
@@ -125,6 +131,7 @@
         .footer-column ul li a {
             color: white;
             text-decoration: none;
+            transition: text-decoration 0.3s;
         }
 
         .footer-column ul li a:hover {
@@ -148,6 +155,12 @@
             font-size: 16px;
         }
 
+        img {
+            max-width: 100%;
+            height: auto;
+            display: block;
+        }
+
         /* Hero Section */
         .hero {
             position: relative;
@@ -155,6 +168,10 @@
             color: #fff;
             text-align: center;
             padding: 120px 20px 80px;
+            min-height: 50vh;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
         }
 
         .hero h1 {
@@ -182,6 +199,7 @@
 
         .hero-logos img {
             height: 60px;
+            width: auto;
             object-fit: contain;
         }
 
@@ -207,6 +225,7 @@
         .mission-vision .img img {
             width: 100%;
             border-radius: 8px;
+            object-fit: cover;
         }
 
         /* Why Students Trust 3M Section */
@@ -225,6 +244,8 @@
             width: 100%;
             border-radius: 8px;
             margin-bottom: 10px;
+            object-fit: cover;
+            aspect-ratio: 16/9; /* Maintain consistent aspect ratio for professionalism */
         }
 
         .trust-item p {
@@ -241,14 +262,17 @@
         .advisory p {
             color: #444;
             margin-bottom: 30px;
+            max-width: 800px;
+            margin-left: auto;
+            margin-right: auto;
         }
 
         .advisory-img img {
             width: 100%;
             max-width: 800px;
             border-radius: 10px;
-            display: block;
             margin: 0 auto;
+            object-fit: cover;
         }
 
         /* Final CTA Section */
@@ -260,6 +284,7 @@
             margin: 60px 10%;
             position: relative;
             overflow: hidden;
+            text-align: center;
         }
 
         .cta h4 {
@@ -276,6 +301,7 @@
 
         .cta-buttons {
             display: flex;
+            justify-content: center;
             gap: 20px;
             flex-wrap: wrap;
         }
@@ -288,15 +314,16 @@
             border: none;
             cursor: pointer;
             text-decoration: none;
+            transition: background 0.3s;
         }
 
         .btn-primary {
-            background: #28a745; /* Aligned with .apply-btn */
+            background: #28a745;
             color: white;
         }
 
         .btn-primary:hover {
-            background: #218838; /* Aligned with .apply-btn hover */
+            background: #218838;
         }
 
         .btn-secondary {
@@ -366,6 +393,7 @@
 
             .mission-vision {
                 flex-direction: column;
+                gap: 20px;
             }
 
             .cta {
@@ -373,9 +401,55 @@
                 padding: 40px 20px;
             }
 
+            .cta::after {
+                right: -150px; /* Adjust to prevent overlap on small screens */
+                top: -100px;
+                width: 300px;
+                height: 300px;
+                opacity: 0.2;
+            }
+
             .hero {
-        height: 50vh;
-    }
+                padding: 80px 20px 60px;
+                min-height: 40vh;
+            }
+
+            .hero h1 {
+                font-size: 24px;
+            }
+
+            .hero p {
+                font-size: 16px;
+            }
+
+            .hero-logos {
+                gap: 20px;
+                padding: 15px;
+            }
+
+            .hero-logos img {
+                height: 50px;
+            }
+
+            .trust-grid {
+                grid-template-columns: 1fr;
+            }
+
+            .trust-item img {
+                aspect-ratio: auto; /* Allow natural aspect on mobile */
+            }
+
+            .footer-container {
+                flex-direction: column;
+                align-items: center;
+                text-align: center;
+            }
+        }
+
+        @media (max-width: 480px) {
+            .cta::after {
+                display: none; /* Hide decorative image on very small screens to avoid any potential overlap */
+            }
         }
     </style>
 </head>
@@ -437,23 +511,23 @@
         <h2>Why Students Trust 3M</h2>
         <div class="trust-grid">
             <div class="trust-item">
-                <img src="KEHL140.jpg" alt="">
+                <img src="KEHL140.jpg" alt="Personalized Support for Every Student">
                 <p>Personalized Support for Every Student</p>
             </div>
             <div class="trust-item">
-                <img src="KEHL201.jpg" alt="">
+                <img src="KEHL201.jpg" alt="Direct Partnerships with Leading Universities">
                 <p>Direct Partnerships with Leading Universities</p>
             </div>
             <div class="trust-item">
-                <img src="KEHL132.jpg" alt="">
+                <img src="KEHL03.jpg" alt="Visa and Interview Coaching">
                 <p>Visa and Interview Coaching</p>
             </div>
             <div class="trust-item">
-                <img src="KEHL211.jpg" alt="">
+                <img src="KEHL132.jpg" alt="20,000+ Students Placed">
                 <p>20,000+ Students Placed</p>
             </div>
             <div class="trust-item">
-                <img src="about10.png" alt="">
+                
                 <p>End-to-End Application Help</p>
             </div>
         </div>
@@ -464,7 +538,7 @@
         <h2>Meet Our Advisory Team</h2>
         <p>Our experienced team brings passion, insight, and dedication to every student’s journey.</p>
         <div class="advisory-img">
-            <img src="KEHL70.jpg" alt="Advisory Team">
+            <img src="advisoryteam.jpg" alt="Advisory Team">
         </div>
     </section>
 
